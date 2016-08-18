@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'puma'
 gem "haml-rails", "~> 0.9"
+gem 'devise'
 
 
 group :development, :test do
