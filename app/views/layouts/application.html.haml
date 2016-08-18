@@ -8,13 +8,13 @@
     %meta{:name => "description", :content => ""}/
 
     %title Lift Ads
+
+    %link{:href => "//fonts.googleapis.com/css?family=Roboto:300,400,500,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "//fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet", :type => "text/css"}/
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %p.notice
-      = notice
-    %p.alert
-      = alert
 
     = yield
