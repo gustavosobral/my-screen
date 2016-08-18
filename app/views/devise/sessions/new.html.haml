@@ -1,23 +1,22 @@
-.container
-  .row
-    .col-md-offset-4.col-md-4
-      .well
-        %h2.text-center Log in
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .form-group
-            = f.label :email
-            %br/
-            = f.email_field :email, autofocus: true, class: 'form-control'
-          .form-group
-            = f.label :password
-            %br/
-            = f.password_field :password, autocomplete: "off", class: 'form-control'
-          - if devise_mapping.rememberable?
-            .checkbox
-              = f.label :remember_me do
-                = f.check_box :remember_me
-                Remember
+.row
+  .col-md-offset-4.col-md-4
+    .well.login-card
+      %h2.text-center Log in
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-group
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, class: 'form-control'
+        .form-group
+          = f.label :password
+          %br/
+          = f.password_field :password, autocomplete: "off", class: 'form-control'
+        - if devise_mapping.rememberable?
+          .checkbox
+            = f.label :remember_me do
+              = f.check_box :remember_me
+              Remember
 
-          .actions.text-center
-            = f.submit "Log in", class: 'btn btn-sup btn-primary btn-raised'
-        = render "devise/shared/links"
+        .actions.text-center
+          = f.submit "Log in", class: 'btn btn-sup btn-primary btn-raised'
+      = render "devise/shared/links"

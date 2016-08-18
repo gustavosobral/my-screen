@@ -1,0 +1,7 @@
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    %div{:class => "alert alert-dismissible alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
+      %a.close{"data-dismiss" => "alert", :href => "#"} ×
+      %ul
+        %li
+          = msg
