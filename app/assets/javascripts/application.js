@@ -19,6 +19,10 @@
 //= require bootstrap-material-design/material
 //= require bootstrap-material-design/ripples
 
-$(document).on('ready', function() {
+var ready;
+ready = function() {
   $.material.init();
-});
+};
+
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);
