@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+//= require bootstrap-material-design/material
+//= require bootstrap-material-design/ripples
+
+$(document).on('ready', function() {
+  $.material.init();
+});

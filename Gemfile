@@ -12,6 +12,7 @@ gem 'turbolinks'
 gem 'puma'
 gem "haml-rails", "~> 0.9"
 gem 'devise'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 
 group :development, :test do
