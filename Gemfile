@@ -19,6 +19,12 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.5'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
+  gem 'awesome_print',          '1.6.1'
 end
 
 group :development do
