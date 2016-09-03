@@ -16,8 +16,14 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = if user_signed_in?
-      = render 'layouts/navbar'
-    .container
-      = render 'layouts/messages'
-      = yield
+    - if user_signed_in?
+      #wrapper
+        = render 'layouts/navbar'
+        #page-wrapper
+          .container-fluid
+            = render 'shared/messages'
+            = yield
+    - else
+      .container
+        = render 'shared/messages'
+        = yield
