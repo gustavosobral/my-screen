@@ -12,6 +12,6 @@ development:
 
 test:
   <<: *default
-  database: myscreen_development
+  database: myscreen_test
   username:
   password:
