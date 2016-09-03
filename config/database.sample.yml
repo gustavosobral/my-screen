@@ -6,12 +6,12 @@ default: &default
 
 development:
   <<: *default
-  database: lift_ads_development
+  database: myscreen_development
   username:
   password:
 
 test:
   <<: *default
-  database: lift_ads_test
+  database: myscreen_development
   username:
   password:
