@@ -1,5 +1,7 @@
 # MyScreen
 
+[![Build Status](https://circleci.com/gh/gustavosobral/my-screen.svg?style=shield)](https://circleci.com/gh/gustavosobral/my-screen.svg?style=shield)
+
 ## Dependencies
 
 To run this project you need to have:
