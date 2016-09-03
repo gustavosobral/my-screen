@@ -19,6 +19,8 @@
 //= require bootstrap-material-design/material
 //= require bootstrap-material-design/ripples
 
+//= require _toggle-full-screen
+
 var ready;
 ready = function() {
   $.material.init();
