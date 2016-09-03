@@ -1,0 +1,16 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand Logo
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{ href: '' }
+            %i.material-icons settings_overscan
+        %li
+          %a
+            %i.material-icons perm_identity
+            Admin
+        %li
+          = link_to destroy_user_session_path, :method=>'delete' do
+            %i.material-icons power_settings_new
