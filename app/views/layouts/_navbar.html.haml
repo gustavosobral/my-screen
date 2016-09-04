@@ -1,18 +1,22 @@
 %nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
     .navbar-header
+      %button.navbar-toggle{ 'data-target' => '.navbar-ex-collapse', 'data-toggle' => 'collapse', type: 'button' }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
       %a.navbar-brand
         = image_tag('myscreen.jpeg', alt: 'MyScreen logo', size: '155x35')
-    .navbar-collapse.collapse.navbar-responsive-collapse
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          %a
-            %i.material-icons perm_identity
-            = current_user.name
-        %li
-          %a{ onclick: 'toggleFullScreen()', href: '' }
-            %i.material-icons settings_overscan
-        %li
-          = link_to destroy_user_session_path, :method=>'delete' do
-            %i.material-icons power_settings_new
+    %ul.nav.top-nav.navbar-right
+      %li
+        %a
+          %i.material-icons perm_identity
+          = current_user.name
+      %li
+        %a{ onclick: 'toggleFullScreen()', href: '' }
+          %i.material-icons settings_overscan
+      %li
+        = link_to destroy_user_session_path, :method=>'delete' do
+          %i.material-icons power_settings_new
   = render 'layouts/sidebar'

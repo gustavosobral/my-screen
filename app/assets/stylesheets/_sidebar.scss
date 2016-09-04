@@ -29,7 +29,7 @@
 
 @media(min-width:1200px) {
   .side-nav {
-    top: 64px;
+    top: 60px;
   }
 }
 
@@ -41,7 +41,7 @@
   display: block;
   padding: 10px 15px 10px 38px;
   text-decoration: none;
-  color: #dcdcdc;
+  color: rgba(255,255,255, 0.84);
 }
 
 .side-nav>li>ul>li>a:hover {
