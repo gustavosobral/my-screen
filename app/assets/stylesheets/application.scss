@@ -17,11 +17,20 @@
 @import "bootstrap-material-design/bootstrap-material-design";
 @import "bootstrap-material-design/ripples";
 
+@import "navbar";
 @import "sidebar";
 
 html { background-color: #EEEEEE; }
 
-body { padding-top: 60px; }
+body {
+  min-width: 260px;
+  width: auto !important;
+  width: 260px;
+  padding-top: 60px; }
+
+@media(max-width: 768px) {
+  body { padding-top: 105px; }
+}
 
 .alert { margin-bottom: 10px; }
 
@@ -36,4 +45,9 @@ body { padding-top: 60px; }
   #page-wrapper { padding: 10px; }
 }
 
-.login-card { margin-top: 50px; }
+.login-card {
+  margin-top: 50px;
+  .logo {
+    margin: 5px 0 15px 0;
+    display: initial; }
+}
