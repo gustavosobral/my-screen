@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe ImagesController, type: :controller do
+RSpec.describe Admin::ImagesController, type: :controller do
 
 end
