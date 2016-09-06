@@ -17,8 +17,9 @@
 @import "bootstrap-material-design/bootstrap-material-design";
 @import "bootstrap-material-design/ripples";
 
-@import "navbar";
-@import "sidebar";
+@import "partials/navbar";
+@import "partials/sidebar";
+@import "*";
 
 html { background-color: #EEEEEE; }
 

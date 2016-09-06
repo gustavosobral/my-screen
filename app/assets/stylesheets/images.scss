@@ -4,6 +4,9 @@
 
 .modal-description { margin-top: 20px; }
 
-.modal-footer {
-  padding-right: 24px;
-  padding-bottom: 10px; }
+#gallery-modal {
+  .modal-footer {
+    text-align: center;
+    padding-bottom: 24px !important; }
+}
+
