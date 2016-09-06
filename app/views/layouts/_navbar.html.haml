@@ -6,8 +6,8 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand
-        = image_tag('myscreen.png', alt: 'MyScreen logo', size: '155x35')
+      = link_to admin_root_path, class: 'navbar-brand' do
+        Logo
     %ul.nav.top-nav.navbar-right
       %li
         %a

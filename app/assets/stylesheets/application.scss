@@ -17,8 +17,9 @@
 @import "bootstrap-material-design/bootstrap-material-design";
 @import "bootstrap-material-design/ripples";
 
-@import "navbar";
-@import "sidebar";
+@import "partials/navbar";
+@import "partials/sidebar";
+@import "*";
 
 html { background-color: #EEEEEE; }
 
@@ -32,13 +33,19 @@ body {
   body { padding-top: 105px; }
 }
 
+h1 { margin-top: 0 }
+
+legend { margin-bottom: 10px; }
+
 .alert { margin-bottom: 10px; }
 
 #wrapper { padding-left: 0; }
 
 #page-wrapper {
   width: 100%;
-  padding: 0; }
+  padding: 0;
+  .container-fluid { padding-top: 15px; }
+}
 
 @media(min-width:768px) {
   #wrapper { padding-left: 225px; }
@@ -51,3 +58,29 @@ body {
     margin: 5px 0 15px 0;
     display: initial; }
 }
+
+.thumbnail {
+  img { padding: 10px 10px 0 10px }
+  h3 { margin-top: 0 }
+  p { margin-bottom: 0 }
+}
+
+.dashboard-header {
+  border-bottom: 1px solid #c1c1c1;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.content-header {
+  .pagination { margin-top: 10px; }
+  .btn-success { margin-bottom: 20px; }
+}
+
+#error-explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0; }
+}
+
+.field_with_errors { @extend .has-error; }

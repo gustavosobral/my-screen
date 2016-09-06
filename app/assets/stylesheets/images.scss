@@ -1,0 +1,14 @@
+// Place all the styles related to the images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.modal-description { margin-top: 20px; }
+
+#gallery-modal {
+  .modal-footer {
+    text-align: center;
+    padding-bottom: 24px !important; }
+}
+
+#input-file { padding: 0 0 0 5px; }
+#input-file-label { text-align: left !important; }

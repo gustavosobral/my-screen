@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  add_breadcrumb 'Painel', :admin_root_path
+
   private
 
   def after_sign_out_path_for(resource_or_scope)

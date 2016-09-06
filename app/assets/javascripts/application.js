@@ -24,6 +24,12 @@
 var ready;
 ready = function() {
   $.material.init();
+
+  $('#gallery-modal').on('show.bs.modal', function(e) {
+    $('#modal-image').attr('src', $(e.relatedTarget).data('src'));
+    $('.modal-title').text($(e.relatedTarget).data('title'));
+    $('.modal-description').text($(e.relatedTarget).data('description'));
+  });
 };
 
 $(document).ready(ready);
