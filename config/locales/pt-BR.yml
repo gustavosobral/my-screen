@@ -1,4 +1,8 @@
 pt-BR:
+  erros:
+    zero: nenhum erro
+    one: um erro
+    other: ! '%{count} erros'
   date:
     abbr_day_names:
     - Dom

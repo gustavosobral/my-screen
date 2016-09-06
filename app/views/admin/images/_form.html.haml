@@ -2,6 +2,8 @@
   %fieldset
     %legend
       = legend
+
+  = render 'error_messages'
   .form-group
     = f.label :title, 'Título', class: 'control-label col-xs-2'
     .col-xs-10
@@ -17,4 +19,4 @@
       %input.form-control{placeholder: 'Procurar...', readonly: '', type: 'text'}/
       = f.file_field :file, id: 'myFile'
   .form-group.text-center
-    = f.submit class: 'btn btn-raised btn-success'
+    = f.submit 'Criar imagem', class: 'btn btn-raised btn-success'
