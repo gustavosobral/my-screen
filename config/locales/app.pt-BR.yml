@@ -1,5 +1,7 @@
 pt-BR:
   activerecord:
+    models:
+      image: Imagem
     attributes:
       image:
         title: Título

@@ -24,6 +24,9 @@
           .container-fluid
             .breadcrumb
               = render_breadcrumbs tag: :li, separator: ' '
+            .dashboard-header
+              %h1
+                = yield(:dashboard_title)
             = render 'shared/messages'
             = yield
     - else
