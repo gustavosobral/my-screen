@@ -1,12 +1,20 @@
-= form_for([:admin, @image], html: { multipart: true }) do |f|
-
-  .field
-    = f.label :title, 'Título'
-    = f.text_field :title
-  .field
-    = f.label :description, ' Descrição'
-    = f.text_field :description
-  %span.file
-    = f.file_field :file
-  .actions
-    = f.submit
+= form_for([:admin, @image], html: { multipart: true , class: 'form-horizontal' }) do |f|
+  %fieldset
+    %legend
+      = legend
+  .form-group
+    = f.label :title, 'Título', class: 'control-label col-xs-2'
+    .col-xs-10
+      = f.text_field :title, placeholder: 'Título', class: 'form-control'
+  .form-group
+    = f.label :description, ' Descrição', class: 'control-label col-xs-2'
+    .col-xs-10
+      = f.text_field :description, placeholder: 'Descrição', class: 'form-control'
+  %span.form-group
+    %label{ for: 'myFile', class: 'control-label col-xs-2' }
+      Arquivo
+    .col-xs-10
+      %input.form-control{placeholder: 'Procurar...', readonly: '', type: 'text'}/
+      = f.file_field :file, id: 'myFile'
+  .form-group.text-center
+    = f.submit class: 'btn btn-raised btn-success'

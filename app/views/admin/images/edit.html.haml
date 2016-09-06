@@ -1,5 +1,8 @@
 - provide(:title, 'Editar Imagem')
 
-%h1 Editar
+.dashboard-header
+  %h1 Editar
 
-= render 'form'
+.col-md-6.col-md-offset-3
+  .well
+    = render partial: 'form', locals: { legend: 'Editar imagem' }

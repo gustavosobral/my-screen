@@ -15,6 +15,7 @@ class Admin::ImagesController < ApplicationController
   end
 
   def create
+    add_breadcrumb 'Nova'
     @image = Image.new(image_params)
 
     if @image.save
@@ -26,6 +27,7 @@ class Admin::ImagesController < ApplicationController
   end
 
   def update
+    add_breadcrumb 'Editar'
     @image = set_image
     if @image.update(image_params)
       flash[:notice] = 'Imagem alterada com sucesso!'
