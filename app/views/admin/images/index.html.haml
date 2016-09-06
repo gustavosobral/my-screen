@@ -1,14 +1,8 @@
 - provide(:title, 'Imagens')
 
-%h1 Imagens
+.dashboard-header
+  %h1 Imagens
 
 = link_to 'Nova imagem', new_admin_image_path
 
-- @images.each do |image|
-  %h3
-    = image.title
-  .p
-    = image_tag image.file_url(:small_thumb) if image.file
-    = link_to 'Editar', edit_admin_image_path(image)
-    |
-    = link_to 'Excluir', admin_image_path(image), method: :delete, data: { confirm: 'Are you sure?' }
+= render 'gallery'

@@ -1,2 +1,12 @@
-= images.each.each do |image|
-  image.title
+.row
+  - @images.each do |image|
+    .col-md-4
+      .thumbnail
+        = image_tag image.file_url(:small_thumb) if image.file
+        .caption.text-center
+          %h3
+            = image.title
+          %p
+            = link_to 'Editar', edit_admin_image_path(image)
+            |
+            = link_to 'Excluir', admin_image_path(image), method: :delete, data: { confirm: 'Você tem certeza?' }
