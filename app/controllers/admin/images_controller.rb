@@ -1,4 +1,6 @@
 class Admin::ImagesController < ApplicationController
+  add_breadcrumb 'Imagens', :admin_images_path
+
   def index
     @images = Image.all
   end
@@ -8,6 +10,7 @@ class Admin::ImagesController < ApplicationController
   end
 
   def new
+    add_breadcrumb 'Nova'
     @image = Image.new
   end
 
@@ -33,6 +36,7 @@ class Admin::ImagesController < ApplicationController
   end
 
   def edit
+    add_breadcrumb 'Editar'
     @image = set_image
   end
 

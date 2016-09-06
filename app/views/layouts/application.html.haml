@@ -22,6 +22,8 @@
         = render 'layouts/navbar'
         #page-wrapper
           .container-fluid
+            .breadcrumb
+              = render_breadcrumbs tag: :li, separator: ' '
             = render 'shared/messages'
             = yield
     - else
