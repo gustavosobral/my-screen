@@ -48,6 +48,6 @@ class Admin::ImagesController < ApplicationController
     end
 
     def image_params
-      params.require(:image).permit(:title, :description)
+      params.require(:image).permit(:title, :description, :file)
     end
 end
