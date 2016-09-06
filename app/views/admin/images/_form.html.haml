@@ -1,0 +1,10 @@
+= form_for [:admin, @image] do |f|
+
+  .field
+    = f.label :title, 'Título'
+    = f.text_field :title
+  .field
+    = f.label :description, ' Descrição'
+    = f.text_field :description
+  .actions
+    = f.submit

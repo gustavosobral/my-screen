@@ -1,4 +1,11 @@
 %h1 Imagens
 
+= link_to 'Nova imagem', new_admin_image_path
+
 - @images.each do |image|
-  %h1 image.title
+  %h3
+    = image.title
+  .p
+    = link_to 'Editar', edit_admin_image_path(image)
+    |
+    = link_to 'Excluir', admin_image_path(image), method: :delete, data: { confirm: 'Are you sure?' }
