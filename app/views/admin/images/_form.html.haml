@@ -11,11 +11,11 @@
   .form-group
     = f.label :description, ' Descrição', class: 'control-label col-xs-2'
     .col-xs-10
-      = f.text_field :description, placeholder: 'Descrição', class: 'form-control'
+      = f.text_area :description, placeholder: 'Descrição', class: 'form-control', rows: 5
   %span.form-group
-    %label{ for: 'myFile', class: 'control-label col-xs-2' }
+    %label{ id: 'input-file-label', for: 'myFile', class: 'control-label col-xs-2' }
       Arquivo
-    .col-xs-10
+    #input-file.col-xs-10
       %input.form-control{placeholder: 'Procurar...', readonly: '', type: 'text'}/
       = f.file_field :file, id: 'myFile'
   .form-group.text-center
