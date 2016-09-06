@@ -136,6 +136,11 @@ pt-BR:
       header:
         one: ! 'Não foi possível gravar %{model}: 1 erro'
         other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  views:
+    pagination:
+      first: "&laquo; Primeira"
+      last: "Última &raquo;"
+      truncate: "&hellip;"
   helpers:
     select:
       prompt: Por favor selecione

@@ -16,6 +16,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'breadcrumbs_on_rails'
+gem 'kaminari'
 
 
 group :development, :test do

@@ -3,6 +3,10 @@
 .dashboard-header
   %h1 Imagens
 
-= link_to 'Nova imagem', new_admin_image_path
+.content-header.row
+  .col-md-4.col-md-offset-4
+    = paginate @images
+  .col-md-2.col-md-offset-2
+    = link_to 'Nova imagem', new_admin_image_path, class: 'btn btn-raised btn-success'
 
 = render 'gallery'

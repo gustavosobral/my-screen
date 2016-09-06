@@ -2,7 +2,7 @@ class Admin::ImagesController < ApplicationController
   add_breadcrumb 'Imagens', :admin_images_path
 
   def index
-    @images = Image.all
+    @images = Image.page(params[:page])
   end
 
   def show
