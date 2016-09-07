@@ -135,6 +135,7 @@ pt-BR:
       not_saved:
         one: 'Não foi possível salvar %{resource}: 1 erro'
         other: 'Não foi possível salvar %{resource}: %{count} erros.'
+      extension_white_list_error: 'não é permitido o envio de arquivos %{extension}, tipos permitidos: %{allowed_types}'
     template:
       body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:
