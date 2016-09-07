@@ -4,7 +4,7 @@
       .thumbnail
         %a{ href: '#gallery-modal', 'data-toggle': 'modal', 'data-src': video.file.url,
             'data-title': video.title, 'data-description': video.description }
-          = image_tag '//placehold.it/1200x700/222?text=...' if video.file
+          = image_tag video.file_url(:small_thumb) if video.file
         .caption.text-center
           %h5.gallery-title
             = video.title

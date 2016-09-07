@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class VideoUploader < CarrierWave::Uploader::Base
+  include CarrierWave::FFMPEG
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -32,9 +33,21 @@ class VideoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  version :thumb do
+    process :gen_video_thumb => [710, 400]
+
+    def full_filename(_)
+      super.chomp('mp4') + 'png'
+    end
+  end
+
+  version :small_thumb do
+    process :gen_video_thumb => [390, 220]
+
+    def full_filename(_)
+      super.chomp('mp4') + 'png'
+    end
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
