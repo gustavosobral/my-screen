@@ -1,0 +1,7 @@
+- if @video.errors.any?
+  #error-explanation
+    .alert.alert-danger
+      O formulário contém #{t('erros', count: @video.errors.count)}.
+    %ul
+      - @video.errors.full_messages.each do |msg|
+        %li= msg

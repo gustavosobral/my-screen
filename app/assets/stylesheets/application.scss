@@ -44,7 +44,13 @@ legend { margin-bottom: 10px; }
 #page-wrapper {
   width: 100%;
   padding: 0;
-  .container-fluid { padding-top: 15px; }
+  .container-fluid { padding-top: 10px; }
+}
+
+@media(min-width:1200px) {
+  #page-wrapper .container-fluid {
+    padding-top: 15px;
+  }
 }
 
 @media(min-width:768px) {

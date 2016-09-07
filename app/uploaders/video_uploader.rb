@@ -1,10 +1,11 @@
 # encoding: utf-8
 
-class ImageUploader < CarrierWave::Uploader::Base
+class VideoUploader < CarrierWave::Uploader::Base
+  include CarrierWave::FFMPEG
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -25,25 +26,33 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [1920, 1080]
-
+  # process :scale => [200, 300]
+  #
   # def scale(width, height)
   #   # do something
   # end
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fill: [710, 400]
+    process :gen_video_thumb => [710, 400]
+
+    def full_filename(_)
+      super.chomp('mp4') + 'png'
+    end
   end
 
   version :small_thumb do
-    process resize_to_fill: [390, 220]
+    process :gen_video_thumb => [390, 220]
+
+    def full_filename(_)
+      super.chomp('mp4') + 'png'
+    end
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg png)
+    %w(mp4)
   end
 
   # Override the filename of the uploaded files:

@@ -1,5 +1,5 @@
 class Resource < ActiveRecord::Base
-  validates :title, presence: true, length: { maximum: 50 }
+  validates :title, presence: true, length: { maximum: 45 }
   validates :description, presence: true, length: { maximum: 255 }
   validates_presence_of :file
 end

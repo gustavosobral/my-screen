@@ -2,8 +2,13 @@ pt-BR:
   activerecord:
     models:
       image: Imagem
+      video: Vídeo
     attributes:
       image:
+        title: Título
+        description: Descrição
+        file: Arquivo
+      video:
         title: Título
         description: Descrição
         file: Arquivo

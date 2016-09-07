@@ -1,0 +1,15 @@
+.row
+  - @videos.each do |video|
+    .col-md-3
+      .thumbnail
+        %a{ href: '#gallery-modal', 'data-toggle': 'modal', 'data-src': video.file.url,
+            'data-title': video.title, 'data-description': video.description }
+          = image_tag video.file_url(:small_thumb) if video.file
+        .caption.text-center
+          %h5.gallery-title
+            = video.title
+          %p
+            = link_to 'Editar', edit_admin_video_path(video)
+            |
+            = link_to 'Excluir', admin_video_path(video), method: :delete, data: { confirm: 'Você tem certeza?' }
+

@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'breadcrumbs_on_rails'
 gem 'kaminari'
+gem 'streamio-ffmpeg'
 
 
 group :development, :test do

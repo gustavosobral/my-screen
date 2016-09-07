@@ -1,4 +1,4 @@
-= form_for([:admin, @image], html: { multipart: true , class: 'form-horizontal' }) do |f|
+= form_for([:admin, @video], html: { multipart: true , class: 'form-horizontal' }) do |f|
   %fieldset
     %legend
       = legend
@@ -13,18 +13,18 @@
     .col-xs-10
       = f.text_area :description, placeholder: 'Descrição', class: 'form-control', rows: 5
   %span.form-group
-    %label{ id: 'input-file-label', for: 'picture-file', class: 'control-label col-xs-2' }
+    %label{ id: 'input-file-label', for: 'video-file', class: 'control-label col-xs-2' }
       Arquivo
     #input-file.col-xs-10
       %input.form-control{ placeholder: 'Procurar...', readonly: '', type: 'text' }/
-      = f.file_field :file, id: 'picture-file', accept: 'image/jpeg,image/png'
+      = f.file_field :file, id: 'video-file', accept: 'video/mp4'
   .form-group.text-center
     = f.submit class: 'btn btn-raised btn-success'
 
 :javascript
-  $('#picture-file').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 4) {
-      alert('Tamanho máximo de um arquivo é 4MB. Por favor, escolha um arquivo menor.');
+  $('#video-file').bind('change', function() {
+    var size_in_gigabytes = this.files[0].size/1024/1024/1024;
+    if (size_in_gigabytes > 1) {
+      alert('Tamanho máximo de um arquivo é 1GB. Por favor, escolha um arquivo menor.');
     }
   });

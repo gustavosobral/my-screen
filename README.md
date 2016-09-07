@@ -1,6 +1,6 @@
 # MyScreen
 
-[![Build Status](https://circleci.com/gh/gustavosobral/my-screen.svg?style=shield&circle-token=f657a6b42787bc052ec855094bcf3f514c2f2f1e)](https://circleci.com/gh/gustavosobral/my-screen.svg?style=shield&circle-token=f657a6b42787bc052ec855094bcf3f514c2f2f1e)
+[![Build Status](https://circleci.com/gh/gustavosobral/my-screen)](https://circleci.com/gh/gustavosobral/my-screen.svg?style=shield&circle-token=f657a6b42787bc052ec855094bcf3f514c2f2f1e)
 
 ## Dependencies
 
@@ -8,10 +8,21 @@ To run this project you need to have:
 
 * Ruby 2.3.1 - You can use [RVM](http://rvm.io)
 * [PostgreSQL](http://www.postgresql.org/)
+* [ImageMagick](http://www.imagemagick.org/script/index.php)
+* FFmpeg
 
 To **integrate** this project to Heroku, you'll need:
 
 * [Heroku Toolbelt](https://toolbelt.heroku.com/)
+
+### Installing FFmpeg on Ubuntu 14.04
+
+FFmpeg has been removed from Ubuntu 14.04. This decision has been reversed so that FFmpeg is available in Ubuntu 15.04 again. So, you only need to do this on Ubuntu 14.04
+```
+$ sudo add-apt-repository ppa:mc3man/trusty-media
+$ sudo apt-get update
+$ sudo apt-get install ffmpeg
+```
 
 ## Setup the project
 

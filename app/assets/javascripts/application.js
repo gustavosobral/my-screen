@@ -27,8 +27,14 @@ ready = function() {
 
   $('#gallery-modal').on('show.bs.modal', function(e) {
     $('#modal-image').attr('src', $(e.relatedTarget).data('src'));
+    $('#modal-video').attr('src', $(e.relatedTarget).data('src'));
+
     $('.modal-title').text($(e.relatedTarget).data('title'));
     $('.modal-description').text($(e.relatedTarget).data('description'));
+  });
+
+  $('#gallery-modal').on('hidden.bs.modal', function() {
+    $('video')[0].pause();
   });
 };
 
