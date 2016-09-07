@@ -1,12 +1,12 @@
 .row
   - @images.each do |image|
-    .col-md-4
+    .col-md-3
       .thumbnail
         %a{ href: '#gallery-modal', 'data-toggle': 'modal', 'data-src': image.file.url,
             'data-title': image.title, 'data-description': image.description }
           = image_tag image.file_url(:small_thumb) if image.file
         .caption.text-center
-          %h3
+          %h5.gallery-title
             = image.title
           %p
             = link_to 'Editar', edit_admin_image_path(image)
