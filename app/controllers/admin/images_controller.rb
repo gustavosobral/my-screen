@@ -49,6 +49,7 @@ class Admin::ImagesController < ApplicationController
   end
 
   private
+
     def set_image
       Image.find(params[:id])
     end
