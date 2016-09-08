@@ -2,6 +2,8 @@ describe Video do
   it 'should be valid' do
     video = FactoryGirl.build(:video)
     expect(video.valid?).to be true
+    expect(video.file_url(:thumb)).to_not be_falsey
+    expect(video.file_url(:small_thumb)).to_not be_falsey
   end
 
   it 'should raise error on invalid video' do
