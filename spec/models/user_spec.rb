@@ -1,3 +1,3 @@
-describe Resource do
+describe User do
   it 'should be valid'
 end

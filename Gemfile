@@ -30,6 +30,7 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
   gem 'awesome_print',          '1.6.1'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -38,7 +39,10 @@ group :development do
   gem 'better_errors'
 end
 
+group :test do
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'rails_12factor'
 end
-
