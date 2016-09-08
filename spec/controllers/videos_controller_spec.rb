@@ -1,5 +1,3 @@
-require 'rails_helper'
-
-RSpec.describe Admin::VideosController, type: :controller do
+describe Admin::VideosController do
 
 end

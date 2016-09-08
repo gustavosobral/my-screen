@@ -4,10 +4,10 @@ class Video < Resource
 
   private
 
-  # Validates the size of an uploaded video.
-  def video_size
-    if file.size > 1.gigabyte
-      errors.add(:file, 'deve ser menor que 1GB')
+    # Validates the size of an uploaded video.
+    def video_size
+      if file.size > 1.gigabyte
+        errors.add(:file, 'deve ser menor que 1GB')
+      end
     end
-  end
 end

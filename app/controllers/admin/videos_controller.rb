@@ -49,6 +49,7 @@ class Admin::VideosController < ApplicationController
   end
 
   private
+
     def set_video
       Video.find(params[:id])
     end
