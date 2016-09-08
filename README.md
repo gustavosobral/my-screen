@@ -1,6 +1,6 @@
 # MyScreen
 
-[![Build Status](https://circleci.com/gh/gustavosobral/my-screen)](https://circleci.com/gh/gustavosobral/my-screen.svg?style=shield&circle-token=f657a6b42787bc052ec855094bcf3f514c2f2f1e)
+[![Build Status](https://circleci.com/gh/gustavosobral/my-screen.svg?style=shield&circle-token=f657a6b42787bc052ec855094bcf3f514c2f2f1e)](https://circleci.com/gh/gustavosobral/my-screen)
 
 ## Dependencies
 
