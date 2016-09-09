@@ -1,5 +1,5 @@
-class Admin::VideosController < Admin::ApplicationController
-  add_breadcrumb 'Vídeos', :admin_videos_path
+class Panel::VideosController < Panel::ApplicationController
+  add_breadcrumb 'Vídeos', :panel_videos_path
 
   def index
     @videos = Video.page(params[:page])
@@ -20,7 +20,7 @@ class Admin::VideosController < Admin::ApplicationController
 
     if @video.save
       flash[:notice] = 'Vídeo salvo com sucesso!'
-      redirect_to admin_videos_path
+      redirect_to panel_videos_path
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class Admin::VideosController < Admin::ApplicationController
     @video = set_video
     if @video.update(video_params)
       flash[:notice] = 'Vídeo alterado com sucesso!'
-      redirect_to admin_videos_path
+      redirect_to panel_videos_path
     else
       render 'edit'
     end
@@ -45,7 +45,8 @@ class Admin::VideosController < Admin::ApplicationController
   def destroy
     @video = set_video
     @video.destroy if @video.present?
-    redirect_to admin_videos_path
+    flash[:notice] = 'Vídeo excluído com sucesso!'
+    redirect_to panel_videos_path
   end
 
   private

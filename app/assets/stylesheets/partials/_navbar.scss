@@ -4,6 +4,13 @@
   box-shadow: 0 8px 6px -6px #999;
 }
 
+.navbar-admin { background-color: #F44336 !important; }
+
+.brown:hover {
+  color: #fff;
+  background-color: #B71C1C !important;
+}
+
 .navbar-right {
   float: right !important;
   margin-right: -15px;
@@ -43,7 +50,7 @@
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
   color: #fff;
-  background-color: #0194d9 !important;
+  background-color: #0194d9;
 }
 
 .top-nav>.open>.dropdown-menu {

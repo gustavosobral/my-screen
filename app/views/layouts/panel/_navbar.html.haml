@@ -1,4 +1,4 @@
-%nav.navbar.navbar-default.navbar-fixed-top.navbar-admin
+%nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
     .navbar-header
       %button.navbar-toggle{ 'data-target' => '.navbar-ex-collapse', 'data-toggle' => 'collapse', type: 'button' }
@@ -6,17 +6,17 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to admin_root_path, class: 'navbar-brand' do
+      = link_to panel_root_path, class: 'navbar-brand' do
         Logo
     %ul.nav.top-nav.navbar-right
       %li
-        %a.brown
+        %a
           %i.material-icons perm_identity
           = current_user.name
       %li
-        %a{ onclick: 'toggleFullScreen()', href: '', class: 'brown' }
+        %a{ onclick: 'toggleFullScreen()', href: '' }
           %i.material-icons settings_overscan
       %li
-        = link_to destroy_user_session_path, :method=>'delete', class: 'brown' do
+        = link_to destroy_user_session_path, :method=>'delete' do
           %i.material-icons power_settings_new
-  = render 'layouts/admin/sidebar'
+  = render 'layouts/panel/sidebar'

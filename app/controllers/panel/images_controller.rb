@@ -1,5 +1,5 @@
-class Admin::ImagesController < Admin::ApplicationController
-  add_breadcrumb 'Imagens', :admin_images_path
+class Panel::ImagesController < Panel::ApplicationController
+  add_breadcrumb 'Imagens', :panel_images_path
 
   def index
     @images = Image.page(params[:page])
@@ -20,7 +20,7 @@ class Admin::ImagesController < Admin::ApplicationController
 
     if @image.save
       flash[:notice] = 'Imagem salva com sucesso!'
-      redirect_to admin_images_path
+      redirect_to panel_images_path
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class Admin::ImagesController < Admin::ApplicationController
     @image = set_image
     if @image.update(image_params)
       flash[:notice] = 'Imagem alterada com sucesso!'
-      redirect_to admin_images_path
+      redirect_to panel_images_path
     else
       render 'edit'
     end
@@ -45,7 +45,8 @@ class Admin::ImagesController < Admin::ApplicationController
   def destroy
     @image = set_image
     @image.destroy if @image.present?
-    redirect_to admin_images_path
+    flash[:notice] = 'Imagem excluída com sucesso!'
+    redirect_to panel_images_path
   end
 
   private

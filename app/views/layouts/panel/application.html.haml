@@ -8,7 +8,7 @@
     %meta{:name => "description", :content => ""}/
 
     %title
-      = full_title(yield(:title), 'MyScreen Admin')
+      = full_title(yield(:title))
 
     %link{:href => "//fonts.googleapis.com/css?family=Roboto:300,400,500,700", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "//fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet", :type => "text/css"}/
@@ -19,7 +19,7 @@
   %body.body-padding
     - if user_signed_in?
       #wrapper
-        = render 'layouts/admin/navbar'
+        = render 'layouts/panel/navbar'
         #page-wrapper
           .container-fluid
             .breadcrumb

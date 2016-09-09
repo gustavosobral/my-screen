@@ -1,3 +1,3 @@
-describe Admin::ImagesController do
+describe Panel::ImagesController do
 
 end
