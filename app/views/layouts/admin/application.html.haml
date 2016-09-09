@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+
+    %meta{:name => "description", :content => ""}/
+
+    %title
+      = full_title(yield(:title), 'MyScreen Admin')
+
+    %link{:href => "//fonts.googleapis.com/css?family=Roboto:300,400,500,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "//fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet", :type => "text/css"}/
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body.body-padding
+    - if user_signed_in?
+      #wrapper
+        = render 'layouts/admin/navbar'
+        #page-wrapper
+          .container-fluid
+            .breadcrumb
+              = render_breadcrumbs tag: :li, separator: ' '
+            .dashboard-header
+              %h1
+                = yield(:dashboard_title)
+            = render 'shared/messages'
+            = yield
+    - else
+      .container
+        = yield

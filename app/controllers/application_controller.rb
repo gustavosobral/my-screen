@@ -6,15 +6,17 @@ class ApplicationController < ActionController::Base
   private
 
     def after_sign_in_path_for(_)
-      panel_root_path
+      return panel_root_path unless current_user.admin?
+      admin_root_path
     end
 
     def after_sign_out_path_for(_)
       root_path
     end
 
+    # Used only on not authenticated requests
     def layout_by_resource
-      if devise_controller? || is_a?(Panel::ApplicationController)
+      if devise_controller?
         'panel/application'
       else
         'application'
