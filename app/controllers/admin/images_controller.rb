@@ -1,4 +1,4 @@
-class Admin::ImagesController < ApplicationController
+class Admin::ImagesController < Admin::ApplicationController
   add_breadcrumb 'Imagens', :admin_images_path
 
   def index

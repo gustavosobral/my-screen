@@ -1,4 +1,4 @@
-class Admin::VideosController < ApplicationController
+class Admin::VideosController < Admin::ApplicationController
   add_breadcrumb 'Vídeos', :admin_videos_path
 
   def index

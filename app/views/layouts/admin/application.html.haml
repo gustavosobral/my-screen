@@ -17,6 +17,18 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .container
-      = render 'shared/messages'
-      = yield
+    - if user_signed_in?
+      #wrapper
+        = render 'layouts/admin/navbar'
+        #page-wrapper
+          .container-fluid
+            .breadcrumb
+              = render_breadcrumbs tag: :li, separator: ' '
+            .dashboard-header
+              %h1
+                = yield(:dashboard_title)
+            = render 'shared/messages'
+            = yield
+    - else
+      .container
+        = yield
