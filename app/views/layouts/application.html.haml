@@ -18,5 +18,20 @@
     = csrf_meta_tags
   %body
     .container
+      .header.clearfix
+        %nav
+          %ul.nav.nav-pills.pull-right
+            %li{ role: 'presentation' }
+              %a{ href: '/' } Sobre
+            %li{ role: 'presentation' }
+              = link_to new_user_session_path do
+                Login
+        %h3 MyScreen
+      %hr
+
       = render 'shared/messages'
       = yield
+
+      %hr
+      %footer.text-right
+        © 2016 MyScreen
