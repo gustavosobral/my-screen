@@ -9,7 +9,7 @@
           %h5.gallery-title
             = video.title
           %p
-            = link_to 'Editar', edit_admin_video_path(video)
+            = link_to 'Editar', edit_panel_video_path(video)
             |
-            = link_to 'Excluir', admin_video_path(video), method: :delete, data: { confirm: 'Você tem certeza?' }
+            = link_to 'Excluir', panel_video_path(video), method: :delete, data: { confirm: 'Você tem certeza?' }
 

@@ -6,7 +6,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to admin_root_path, class: 'navbar-brand' do
+      = link_to panel_root_path, class: 'navbar-brand' do
         Logo
     %ul.nav.top-nav.navbar-right
       %li
@@ -19,4 +19,4 @@
       %li
         = link_to destroy_user_session_path, :method=>'delete' do
           %i.material-icons power_settings_new
-  = render 'layouts/admin/sidebar'
+  = render 'layouts/panel/sidebar'

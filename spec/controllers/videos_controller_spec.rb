@@ -1,3 +1,3 @@
-describe Admin::VideosController do
+describe Panel::VideosController do
 
 end
