@@ -10,13 +10,13 @@
         Logo
     %ul.nav.top-nav.navbar-right
       %li
-        %a
+        %a.blue
           %i.material-icons perm_identity
           = current_user.name
       %li
-        %a{ onclick: 'toggleFullScreen()', href: '' }
+        %a{ onclick: 'toggleFullScreen()', href: '', class: 'blue' }
           %i.material-icons settings_overscan
       %li
-        = link_to destroy_user_session_path, :method=>'delete' do
+        = link_to destroy_user_session_path, method: 'delete', class: 'blue' do
           %i.material-icons power_settings_new
   = render 'layouts/panel/sidebar'
