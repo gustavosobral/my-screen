@@ -32,6 +32,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'awesome_print',          '1.6.1'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -42,7 +43,6 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'faker'
   gem 'capybara'
   gem 'launchy'
   gem 'codecov', :require => false

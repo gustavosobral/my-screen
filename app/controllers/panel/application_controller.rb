@@ -1,5 +1,6 @@
 class Panel::ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :verify_admin
 
   rescue_from FFMPEG::Error, with: :ffmpeg_error
 
@@ -7,8 +8,15 @@ class Panel::ApplicationController < ActionController::Base
 
   private
 
+    def verify_admin
+      if current_user.admin?
+        flash[:error] = 'Você não possuí permissão para acessar este painel.'
+        redirect_to admin_root_path
+      end
+    end
+
     def ffmpeg_error
-      flash[:error] = 'Ocorreu um erro no upload do arquivo. Por favor, verifique se a codificação do vídeo esta correta'
+      flash[:error] = 'Ocorreu um erro no upload do arquivo. Por favor, verifique se a codificação do vídeo esta correta.'
       redirect_to panel_videos_path
     end
 end

@@ -22,5 +22,8 @@ database.yml
 # Ignore RubyMine files.
 .idea/
 
+# Ignore CodeCov files.
+coverage/
+
 # Ignore uploaded test images.
 /public/uploads
