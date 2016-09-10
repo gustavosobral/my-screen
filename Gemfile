@@ -19,6 +19,7 @@ gem 'breadcrumbs_on_rails'
 gem 'kaminari'
 gem 'streamio-ffmpeg', '~> 2.1.0'
 gem 'high_voltage', '~> 3.0.0'
+gem 'rollbar'
 
 
 group :development, :test do
