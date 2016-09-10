@@ -4,14 +4,16 @@
   box-shadow: 0 8px 6px -6px #999;
 }
 
-.blue:hover {
+.blue:hover,
+.blue:focus {
   color: #fff;
   background-color: #1565C0 !important;
 }
 
 .navbar-admin { background-color: #F44336 !important; }
 
-.brown:hover {
+.brown:hover,
+.brown:focus {
   color: #fff;
   background-color: #B71C1C !important;
 }

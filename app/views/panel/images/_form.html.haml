@@ -16,7 +16,7 @@
       = f.text_area :description, placeholder: 'Descrição', class: 'form-control', rows: 5
       %p.help-block
         Limite máximo de 255 caracteres
-  %span.form-group
+  .form-group
     %label{ id: 'input-file-label', for: 'picture-file', class: 'control-label col-xs-2' }
       Arquivo
     #input-file.col-xs-10
@@ -27,7 +27,9 @@
           %button.btn.btn-fab.btn-fab-mini{ type: 'button' }
             %i.material-icons attach_file
   .form-group.text-center
-    = f.submit class: 'btn btn-raised btn-success'
+    = link_to panel_images_path, class: 'btn btn-raised btn-danger margin-sides-15' do
+      Cancelar
+    = f.submit class: 'btn btn-raised btn-success margin-sides-15'
 
 :javascript
   $('#picture-file').bind('change', function() {

@@ -44,14 +44,20 @@ legend { margin-bottom: 10px; }
 
 hr { background-color: #bababa; }
 
+.margin-sides-15 { 
+  margin-left: 15px;
+  margin-right: 15px; }
+
 .jumbotron { margin-top: 30px; }
 
 .alert { margin-bottom: 10px; }
 
 .full-screen .tooltip { width: 74px; }
 
-.margin-20 {
-  .well { margin-top: 20px; }
+.override-well {
+  .well { 
+    margin-top: 20px;
+    padding-right: 40px !important; }
 }
 
 #wrapper { padding-left: 0; }
