@@ -43,6 +43,9 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'codecov', :require => false
 end
 
 group :production do

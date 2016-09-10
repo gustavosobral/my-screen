@@ -17,6 +17,6 @@
         %a{ onclick: 'toggleFullScreen()', href: '', class: 'brown' }
           %i.material-icons settings_overscan
       %li
-        = link_to destroy_user_session_path, :method=>'delete', class: 'brown' do
+        = link_to destroy_user_session_path, method: 'delete', class: 'brown' do
           %i.material-icons power_settings_new
   = render 'layouts/admin/sidebar'

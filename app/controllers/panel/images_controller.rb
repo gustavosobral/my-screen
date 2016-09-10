@@ -53,7 +53,7 @@ class Panel::ImagesController < Panel::ApplicationController
     def correct_user
       @image = Image.find_by(id: params[:id], user_id: current_user.id)
       if @image.nil?
-        flash[:error] = 'Você não possui autorização para acessar esse recurso'
+        flash[:error] = 'Você não possui autorização para acessar esse recurso.'
         redirect_to panel_root_path
       end
     end
