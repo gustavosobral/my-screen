@@ -24,6 +24,7 @@
 var ready;
 ready = function() {
   $.material.init();
+  $('[data-toggle="tooltip"]').tooltip({ delay: { "show": 600, "hide": 100 } });
 
   $('#gallery-modal').on('show.bs.modal', function(e) {
     $('#modal-image').attr('src', $(e.relatedTarget).data('src'));
