@@ -17,6 +17,6 @@
         %a{ onclick: 'toggleFullScreen()', href: '', class: 'blue', 'data-original-title': 'Tela cheia', 'data-placement': 'bottom', 'data-toggle': 'tooltip' }
           %i.material-icons settings_overscan
       %li
-        = link_to destroy_user_session_path, method: 'delete', class: 'blue', 'data-original-title': 'Sair', 'data-placement': 'bottom', 'data-toggle': 'tooltip' do
+        = link_to destroy_user_session_path, id: 'exit', method: 'delete', class: 'blue', 'data-original-title': 'Sair', 'data-placement': 'bottom', 'data-toggle': 'tooltip' do
           %i.material-icons power_settings_new
   = render 'layouts/panel/sidebar'
