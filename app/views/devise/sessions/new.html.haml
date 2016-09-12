@@ -3,7 +3,8 @@
     = render 'shared/messages'
     .well.login-card
       .text-center
-        = image_tag('myscreen.png', alt: 'MyScreen logo', size: '240x55', class: 'logo img-responsive text-center')
+        = link_to root_path, id: 'root' do
+          = image_tag('myscreen.png', alt: 'MyScreen logo', size: '240x55', class: 'logo img-responsive text-center')
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-group
           = f.label :email, 'E-mail'
