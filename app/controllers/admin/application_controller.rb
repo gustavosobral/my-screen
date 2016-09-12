@@ -8,8 +8,8 @@ class Admin::ApplicationController < ActionController::Base
 
     def verify_admin
       unless current_user.admin?
-        flash[:error] = 'Você não possuí permissão de administrador.'
-        redirect_to panel_root_path
+        flash[:error] = 'Você não possui permissão para realizar esta ação.'
+        redirect_to root_path
       end
     end
 end
