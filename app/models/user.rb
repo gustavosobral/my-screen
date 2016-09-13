@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   # :registerable, :recoverable, :timeoutable and :omniauthable
 
   devise :database_authenticatable, :rememberable, :trackable, :validatable
+
+  validates :name, presence: true, length: { maximum: 50 }
 end
