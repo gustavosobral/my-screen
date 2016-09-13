@@ -5,8 +5,7 @@ describe User do
   end
 
   it 'email should be unique' do
-    user = FactoryGirl.build(:user)
-    user.save
+    FactoryGirl.create(:user)
     other_user = FactoryGirl.build(:user, name: 'Jose')
     expect(other_user.valid?).to be false
     expect(other_user.errors.messages[:email].join).to match('já está em uso')

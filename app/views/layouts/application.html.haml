@@ -24,8 +24,15 @@
             %li{ role: 'presentation' }
               %a{ href: '/' } Sobre
             %li{ role: 'presentation' }
-              = link_to new_user_session_path do
-                Login
+              - if current_user && current_user.admin?
+                = link_to admin_root_path do
+                  Painel Admin
+              - elsif current_user
+                = link_to panel_root_path do
+                  Painel
+              - else
+                = link_to new_user_session_path do
+                  Login
         %h3 MyScreen
       %hr
 
