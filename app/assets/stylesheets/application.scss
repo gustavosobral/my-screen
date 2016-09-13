@@ -17,8 +17,8 @@
 @import "bootstrap-material-design/bootstrap-material-design";
 @import "bootstrap-material-design/ripples";
 
-@import "partials/navbar";
-@import "partials/sidebar";
+@import "navbar";
+@import "sidebar";
 @import "*";
 
 html { background-color: #EEEEEE; }
@@ -111,3 +111,16 @@ hr { background-color: #bababa; }
 }
 
 .field_with_errors { @extend .has-error; }
+
+.header h3 { margin-top: 5px; }
+
+.modal-description { margin-top: 20px; }
+
+#gallery-modal {
+  .img-responsive { display: inline; }
+  .modal-footer {
+    text-align: center;
+    padding-bottom: 24px !important; }
+}
+
+.gallery-title { height: 30px; }
