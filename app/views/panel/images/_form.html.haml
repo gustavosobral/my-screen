@@ -17,10 +17,10 @@
       %p.help-block
         Limite máximo de 255 caracteres
   .form-group
-    %label{ id: 'input-file-label', for: 'picture-file', class: 'control-label col-xs-2' }
+    %label{ id: 'input-file-label', for: 'image_file', class: 'control-label col-xs-2' }
       Arquivo
     #input-file.col-xs-10
-      = f.file_field :file, id: 'picture-file', accept: 'image/jpeg,image/png'
+      = f.file_field :file, id: 'image_file', accept: 'image/jpeg,image/png'
       .input-group
         %input.form-control{ placeholder: 'Procurar...', readonly: '', type: 'text' }/
         %span.input-group-btn.input-group-sm
@@ -32,7 +32,7 @@
     = f.submit class: 'btn btn-raised btn-success margin-sides-15'
 
 :javascript
-  $('#picture-file').bind('change', function() {
+  $('#image_file').bind('change', function() {
     var size_in_megabytes = this.files[0].size/1024/1024;
     if (size_in_megabytes > 4) {
       alert('Tamanho máximo de um arquivo é 4MB. Por favor, escolha um arquivo menor.');
