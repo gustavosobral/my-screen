@@ -3,7 +3,7 @@
     %legend
       = legend
 
-  = render 'error_messages'
+  = render partial: 'shared/error_messages', locals: { resource: @image }
   .form-group
     = f.label :title, 'Título', class: 'control-label col-xs-2'
     .col-xs-10

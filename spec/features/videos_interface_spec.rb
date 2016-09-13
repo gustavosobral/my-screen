@@ -7,8 +7,14 @@ feature 'Video interface manipulation', type: :feature do
     visit panel_videos_path
     expect(page).to have_no_content video.title
 
-    # Create
+    # Submit invalid
     visit new_panel_video_path
+    fill_in 'video_description', with: video.description
+    submit_form
+    expect(page).to have_content 'Título não pode ficar em branco'
+    expect(page).to have_content 'Arquivo não pode ficar em branco'
+
+    # Create
     fill_in 'video_title', with: video.title
     fill_in 'video_description', with: video.description
     attach_file('video_file', File.join(Rails.root, 'spec', 'fixtures', 'SampleVideo_1280x720_1mb.mp4'))

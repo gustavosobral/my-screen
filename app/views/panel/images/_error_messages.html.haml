@@ -1,7 +1,0 @@
-- if @image.errors.any?
-  #error-explanation
-    .alert.alert-danger
-      O formulário contém #{t('erros', count: @image.errors.count)}.
-    %ul
-      - @image.errors.full_messages.each do |msg|
-        %li= msg

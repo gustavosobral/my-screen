@@ -7,8 +7,14 @@ feature 'Image interface manipulation', type: :feature do
     visit panel_images_path
     expect(page).to have_no_content image.title
 
-    # Create
+    # Submit invalid
     visit new_panel_image_path
+    fill_in 'image_title', with: image.title
+    submit_form
+    expect(page).to have_content 'Descrição não pode ficar em branco'
+    expect(page).to have_content 'Arquivo não pode ficar em branco'
+
+    # Create
     fill_in 'image_title', with: image.title
     fill_in 'image_description', with: image.description
     attach_file('image_file', File.join(Rails.root, 'spec', 'fixtures', 'PbPYzVD.jpg'))
