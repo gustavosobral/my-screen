@@ -4,8 +4,8 @@ describe 'Resources authorization access', type: :request do
     @other_user = FactoryGirl.create(:user, email: 'teste@email.com')
   end
 
-
   context 'with other user image' do
+    # Create a image with other user
     before(:context) do
       @image_attributes = FactoryGirl.attributes_for(:image)
 
@@ -29,6 +29,7 @@ describe 'Resources authorization access', type: :request do
   end
 
   context 'with other user video' do
+    # Create a video with other user
     before(:context) do
       @video_attributes = FactoryGirl.attributes_for(:video)
 

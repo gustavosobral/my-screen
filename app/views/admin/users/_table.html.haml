@@ -1,0 +1,29 @@
+.table-responsive
+  %table.table.table-bordered
+    %thead.thead-default
+      %tr
+        %th #
+        %th Nome
+        %th Email
+        %th Último acesso
+        %th Acessos
+        %th
+    %tbody
+      - @users.each do |user|
+        %tr
+          %th{ scope: 'row' }
+            = user.id
+          %td
+            = user.name
+          %td
+            = user.email
+          %td
+            - if user.last_sign_in_at
+              = I18n.l(user.last_sign_in_at, format: :long)
+            - else
+              Não acessou o sistema
+          %td
+            = user.sign_in_count
+          %td.text-center.td-button
+            = link_to 'Editar', edit_admin_user_path(user), class: 'btn btn-raised btn-sm btn-warning no-margin'
+            = link_to 'Excluir', admin_user_path(user), method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-raised btn-sm btn-danger no-margin'

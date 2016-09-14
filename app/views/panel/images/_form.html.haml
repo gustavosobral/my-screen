@@ -3,11 +3,11 @@
     %legend
       = legend
 
-  = render 'error_messages'
+  = render partial: 'shared/error_messages', locals: { resource: @image }
   .form-group
     = f.label :title, 'Título', class: 'control-label col-xs-2'
     .col-xs-10
-      = f.text_field :title, placeholder: 'Título', class: 'form-control'
+      = f.text_field :title, placeholder: 'Título', class: 'form-control', autofocus: true
       %p.help-block
         Limite máximo de 45 caracteres
   .form-group

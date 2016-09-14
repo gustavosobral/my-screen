@@ -1,0 +1,34 @@
+- provide(:title, 'Perfil')
+
+.col-md-8.col-md-offset-2.override-well
+  .well
+    = form_for(@user, url: panel_profile_path, html: { class: 'form-horizontal' }) do |f|
+      %fieldset
+        %legend
+          Atualizar perfil
+
+      = render partial: 'shared/error_messages', locals: { resource: @user }
+      .form-group
+        = f.label :name, 'Nome', class: 'control-label col-xs-2'
+        .col-xs-10
+          = f.text_field :name, placeholder: 'Nome', class: 'form-control', autofocus: true
+          %p.help-block
+            Limite máximo de 50 caracteres
+      .form-group
+        = f.label :email, 'E-mail', class: 'control-label col-xs-2'
+        .col-xs-10
+          = f.email_field :email, placeholder: 'E-mail', class: 'form-control'
+      .form-group
+        = f.label :password, 'Senha', class: 'control-label col-xs-2'
+        .col-xs-10
+          = f.password_field :password, placeholder: 'Senha', autocomplete: 'off',  class: 'form-control'
+          %p.help-block
+            Limite mínimo de 8 caracteres
+      .form-group
+        = f.label :password_confirmation, 'Confirmação de senha', class: 'control-label col-xs-2'
+        .col-xs-10
+          = f.password_field :password_confirmation, placeholder: 'Confirmação de Senha', autocomplete: 'off',  class: 'form-control'
+      .form-group.text-center
+        = link_to panel_root_path, class: 'btn btn-raised btn-danger margin-sides-15' do
+          Cancelar
+        = f.submit 'Atualizar perfil', class: 'btn btn-raised btn-success margin-sides-15'

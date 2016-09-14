@@ -17,22 +17,21 @@ describe 'Resources authenticated access', type: :request do
   end
 
   context 'with basic user login' do
+    let(:user) { FactoryGirl.create(:user) }
+
     it 'allow access to panel home' do
-      user = FactoryGirl.create(:user)
       sign_in user
       get panel_root_path
       expect(response.status).to eq(200)
     end
 
     it 'allow access to panel images' do
-      user = FactoryGirl.create(:user)
       sign_in user
       get panel_images_path
       expect(response.status).to eq(200)
     end
 
     it 'denies access to admin home' do
-      user = FactoryGirl.create(:user)
       sign_in user
       get admin_root_path
       expect(response).to redirect_to root_path
@@ -40,22 +39,21 @@ describe 'Resources authenticated access', type: :request do
   end
 
   context 'with admin login' do
+    let(:admin) { FactoryGirl.create(:admin_user) }
+
     it 'denies access to panel home' do
-      admin = FactoryGirl.create(:admin_user)
       sign_in admin
       get panel_root_path
       expect(response).to redirect_to root_path
     end
 
     it 'denies access to panel images' do
-      admin = FactoryGirl.create(:admin_user)
       sign_in admin
       get panel_images_path
       expect(response).to redirect_to root_path
     end
 
     it 'allow access to admin home' do
-      admin = FactoryGirl.create(:admin_user)
       sign_in admin
       get admin_root_path
       expect(response.status).to eq(200)
