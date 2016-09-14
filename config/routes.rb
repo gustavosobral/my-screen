@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   namespace :panel do
     root to: 'home#index'
 
+    get   '/profile', to: 'home#profile'
+    patch '/profile', to: 'home#update_profile'
+
     resources :images, except: [:show]
     resources :videos, except: [:show]
   end
