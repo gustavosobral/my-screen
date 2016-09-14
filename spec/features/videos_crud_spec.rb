@@ -1,5 +1,5 @@
-feature 'Video interface manipulation', type: :feature do
-  scenario 'create, update and destroy' do
+feature 'As an User I manage Video CRUD', type: :feature do
+  scenario 'creating, updating and destroying' do
     user = FactoryGirl.create(:user)
     video = FactoryGirl.build(:video)
 
