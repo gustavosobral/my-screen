@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'home#index'
 
+    get   '/profile', to: 'home#profile'
+    patch '/profile', to: 'home#update_profile'
+
     resources :users, except: [:show]
   end
 end

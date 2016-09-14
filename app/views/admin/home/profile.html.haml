@@ -2,7 +2,7 @@
 
 .col-md-8.col-md-offset-2.override-well
   .well
-    = form_for(@user, url: panel_profile_path, html: { class: 'form-horizontal' }) do |f|
+    = form_for(@user, url: admin_profile_path, html: { class: 'form-horizontal' }) do |f|
       %fieldset
         %legend
           Atualizar perfil
@@ -29,6 +29,6 @@
         .col-xs-10
           = f.password_field :password_confirmation, placeholder: 'Confirmação de Senha', autocomplete: 'off',  class: 'form-control'
       .form-group.text-center
-        = link_to panel_root_path, class: 'btn btn-raised btn-danger margin-sides-15' do
+        = link_to admin_root_path, class: 'btn btn-raised btn-danger margin-sides-15' do
           Cancelar
         = f.submit 'Atualizar perfil', class: 'btn btn-raised btn-success margin-sides-15'
