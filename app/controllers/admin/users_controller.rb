@@ -10,6 +10,17 @@ class Admin::UsersController < Admin::ApplicationController
     @user = User.new
   end
 
+  def create
+    add_breadcrumb 'Novo'
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = 'Usuário salvo com sucesso!'
+      redirect_to admin_users_path
+    else
+      render 'new'
+    end
+  end
+
   def edit
     add_breadcrumb 'Editar'
   end
@@ -28,6 +39,6 @@ class Admin::UsersController < Admin::ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

@@ -1,9 +1,15 @@
 pt-BR:
   activerecord:
     models:
+      user: Usuário
       image: Imagem
       video: Vídeo
     attributes:
+      user:
+        name: Nome
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de senha
       image:
         title: Título
         description: Descrição
