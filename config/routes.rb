@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
 
+  get 'switch_user/:id', to: 'masquerade#switch_user', as: :switch_user
+  get 'switch_back'    , to: 'masquerade#switch_back', as: :switch_back
+
   namespace :panel do
     root to: 'home#index'
 
