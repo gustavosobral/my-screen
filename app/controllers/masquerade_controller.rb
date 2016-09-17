@@ -5,7 +5,7 @@ class MasqueradeController < ApplicationController
   def switch_user
     user = User.find_by(admin: false, id: params[:id])
     session[:original_user_id] = current_user.id
-    sign_in(:user, user, { bypass: true })
+    bypass_sign_in(user)
     flash[:warning] = "Você está visualizando o painel como #{user.name}."
     redirect_to panel_root_path
   end
@@ -13,7 +13,7 @@ class MasqueradeController < ApplicationController
   def switch_back
     user = User.find(session[:original_user_id])
     session[:original_user_id] = nil
-    sign_in(:user, user, { bypass: true })
+    bypass_sign_in(user)
     flash[:notice] = 'Você voltou ao painel administrativo.'
     redirect_to admin_users_path
   end
