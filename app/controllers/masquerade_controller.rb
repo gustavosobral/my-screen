@@ -6,7 +6,7 @@ class MasqueradeController < ApplicationController
     user = User.find_by(admin: false, id: params[:id])
     session[:original_user_id] = current_user.id
     sign_in(:user, user, { bypass: true })
-    flash[:notice] = "Você está visualizando o painel como #{user.name}."
+    flash[:warning] = "Você está visualizando o painel como #{user.name}."
     redirect_to panel_root_path
   end
 
