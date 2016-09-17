@@ -27,6 +27,7 @@ feature 'I manage my profile', type: :feature do
 
   context 'As an admin user' do
     let(:admin_user) { FactoryGirl.create(:admin_user) }
+
     scenario 'updating attributes' do
       sign_in admin_user
       visit admin_root_path

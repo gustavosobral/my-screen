@@ -1,5 +1,5 @@
-- flash.each do |name, msg|
+- flash.each do |type, msg|
   - if msg.is_a?(String)
-    %div{ class: "alert alert-dismissible alert-#{name.to_s == 'notice' ? 'success' : 'danger'}" }
+    .alert.alert-dismissible{ class: alert_class(type) }
       %a.close{ 'data-dismiss': 'alert', href: '#' } ×
       = msg
