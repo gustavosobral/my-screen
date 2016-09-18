@@ -1,0 +1,20 @@
+= form_for([:admin, @terminal], html: { class: 'form-horizontal' }) do |f|
+  %fieldset
+    %legend
+      = legend
+
+  = render partial: 'shared/error_messages', locals: { resource: @terminal }
+  .form-group
+    = f.label :title, 'Título', class: 'control-label col-xs-2'
+    .col-xs-10
+      = f.text_field :title, placeholder: 'Título', class: 'form-control', autofocus: true
+      %p.help-block
+        Limite máximo de 50 caracteres
+  .form-group
+    = f.label :user_id, 'Usuário', class: 'control-label col-xs-2'
+    .col-xs-10
+      = f.collection_select(:user_id, User.where(admin: false), :id, :name, {}, { class: 'form-control' })
+  .form-group.text-center
+    = link_to admin_terminals_path, class: 'btn btn-raised btn-danger margin-sides-15' do
+      Cancelar
+    = f.submit class: 'btn btn-raised btn-success margin-sides-15'

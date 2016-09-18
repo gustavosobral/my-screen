@@ -4,6 +4,7 @@ pt-BR:
       user: Usuário
       image: Imagem
       video: Vídeo
+      terminal: Terminal
     attributes:
       user:
         name: Nome
@@ -18,3 +19,5 @@ pt-BR:
         title: Título
         description: Descrição
         file: Arquivo
+      terminal:
+        title: Título
