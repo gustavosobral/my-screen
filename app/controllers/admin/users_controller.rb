@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::ApplicationController
   add_breadcrumb 'Usuários', :admin_users_path
 
   def index
-    @users = User.where(admin: false).page(params[:page])
+    @users = User.where(admin: false).page(params[:page]).per(15)
   end
 
   def new

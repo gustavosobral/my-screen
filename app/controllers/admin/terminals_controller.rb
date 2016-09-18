@@ -2,7 +2,7 @@ class Admin::TerminalsController < Admin::ApplicationController
   add_breadcrumb 'Terminais', :admin_terminals_path
 
   def index
-    @terminals = Terminal.page(params[:page])
+    @terminals = Terminal.page(params[:page]).per(15)
   end
 
   def new
