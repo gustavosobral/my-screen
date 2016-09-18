@@ -1,6 +1,6 @@
 feature 'As an admin I manage User CRUD', type: :feature do
   let(:user) { FactoryGirl.build(:user) }
-  let(:admin_user) { FactoryGirl.create(:admin_user, name: 'Joao', email: 'admin@mail.com') }
+  let(:admin_user) { FactoryGirl.create(:admin_user) }
 
   context 'with invalid data' do
     scenario 'show errors' do

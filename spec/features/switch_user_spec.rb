@@ -2,7 +2,7 @@ feature 'I switch user', type: :feature do
   let(:admin_user) { FactoryGirl.create(:admin_user) }
 
   scenario 'As an admin user' do
-    user = FactoryGirl.create(:user, email: 'jose@email.com')
+    user = FactoryGirl.create(:user)
     sign_in admin_user
     visit admin_users_path
 
