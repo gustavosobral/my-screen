@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :resources, dependent: :destroy
+  has_many :terminals, dependent: :destroy
 
   # Others available are: :confirmable, :lockable,
   # :registerable, :recoverable, :timeoutable and :omniauthable
