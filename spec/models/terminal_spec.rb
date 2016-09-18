@@ -5,7 +5,7 @@ describe Terminal do
     expect(terminal.valid?).to be true
   end
 
-  it 'should not accept without user' do
+  it 'user should be present' do
     terminal.user = nil
     expect(terminal.valid?).to be false
     expect(terminal.errors.messages[:user].join).to match('não pode ficar em branco')
