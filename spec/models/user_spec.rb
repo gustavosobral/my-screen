@@ -18,8 +18,9 @@ describe User do
   end
 
   it 'email should be unique' do
+    user.email = 'valid@valid.com'
     user.save
-    other_user = FactoryGirl.build(:user, name: 'Jose')
+    other_user = FactoryGirl.build(:user, email: 'valid@valid.com')
     expect(other_user.valid?).to be false
     expect(other_user.errors.messages[:email].join).to match('já está em uso')
   end
