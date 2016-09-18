@@ -11,8 +11,9 @@ Rails.application.routes.draw do
     get   '/profile', to: 'home#profile'
     patch '/profile', to: 'home#update_profile'
 
-    resources :images, except: [:show]
-    resources :videos, except: [:show]
+    resources :images   , except: [:show]
+    resources :videos   , except: [:show]
+    resources :terminals, only:   [:index, :edit, :update]
   end
 
   namespace :admin do
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
     get   '/profile', to: 'home#profile'
     patch '/profile', to: 'home#update_profile'
 
-    resources :users, except: [:show]
+    resources :users    , except: [:show]
+    resources :terminals, except: [:show]
   end
 end
