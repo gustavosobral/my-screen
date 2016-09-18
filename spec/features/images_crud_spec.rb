@@ -8,7 +8,7 @@ feature 'As an User I manage Image CRUD', type: :feature do
     expect(page).to have_no_content image.title
 
     # Submit invalid
-    visit new_panel_image_path
+    click_link 'Nova imagem'
     fill_in 'image_title', with: image.title
     submit_form
     expect(page).to have_content 'Descrição não pode ficar em branco'
