@@ -43,7 +43,8 @@ feature 'As an admin I manage User CRUD', type: :feature do
       expect(page).to have_content 'Não acessou o sistema'
 
       # Destroy
-      expect { click_link 'Excluir' }.to change(User, :count).by(-1)
+      delete_user = User.find_by(name: user.name)
+      expect { click_link_by_href admin_user_path(delete_user) }.to change(User, :count).by(-1)
     end
 
     scenario 'update without password' do
