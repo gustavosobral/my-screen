@@ -8,7 +8,7 @@ feature 'I switch user', type: :feature do
 
     # Switch user
     expect(page).to have_link(nil, href: switch_user_path(user))
-    find(:xpath, "//a[@href='#{switch_user_path(user)}']").click
+    click_link_by_href switch_user_path(user)
     expect(page).to have_content "Você está visualizando o painel como #{user.name}."
     expect(page).to have_content user.name
 

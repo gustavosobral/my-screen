@@ -16,7 +16,7 @@ feature 'I manage Terminal', type: :feature do
 
       # Create
       fill_in 'terminal_title', with: 'my-screen-01'
-      find('#terminal_user_id').find(:xpath, 'option[1]').select_option
+      find('#terminal_user_id').find(:xpath, "option[@value='#{user.id}']").select_option
       submit_form
       expect(page).to have_content user.email
       expect(page).to have_content 'my-screen-01'
