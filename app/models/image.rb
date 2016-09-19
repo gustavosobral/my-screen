@@ -1,5 +1,6 @@
 class Image < Resource
   mount_uploader :file, ImageUploader
+
   validate :image_size
 
   private

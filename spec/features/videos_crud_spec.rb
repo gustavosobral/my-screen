@@ -8,7 +8,7 @@ feature 'As an User I manage Video CRUD', type: :feature do
     expect(page).to have_no_content video.title
 
     # Submit invalid
-    visit new_panel_video_path
+    click_link 'Novo vídeo'
     fill_in 'video_description', with: video.description
     submit_form
     expect(page).to have_content 'Título não pode ficar em branco'

@@ -9,7 +9,7 @@ feature 'Public site layout', type: :feature do
 
   scenario 'layout links with login in' do
     user = FactoryGirl.create(:user)
-    admin_user = FactoryGirl.create(:admin_user, email: 'another@email.com')
+    admin_user = FactoryGirl.create(:admin_user)
 
     visit root_path
     expect(page).to have_link 'Login'

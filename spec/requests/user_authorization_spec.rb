@@ -1,7 +1,7 @@
 describe 'Resources authorization access', type: :request do
   before(:context) do
     @user = FactoryGirl.create(:user)
-    @other_user = FactoryGirl.create(:user, email: 'teste@email.com')
+    @other_user = FactoryGirl.create(:user)
   end
 
   context 'with other user image' do

@@ -1,6 +1,12 @@
 describe Resource do
   let(:resource) { FactoryGirl.build(:resource) }
 
+  it 'user should be present' do
+    resource.user = nil
+    expect(resource.valid?).to be false
+    expect(resource.errors.messages[:user]).to include('não pode ficar em branco')
+  end
+
   it 'title should be present' do
     resource.title = ''
     expect(resource.valid?).to be false

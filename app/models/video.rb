@@ -1,5 +1,6 @@
 class Video < Resource
   mount_uploader :file, VideoUploader
+
   validate :video_size
 
   private

@@ -1,0 +1,19 @@
+.table-responsive
+  %table.table.table-bordered
+    %thead.thead-default
+      %tr
+        %th #
+        %th Título
+        %th Última modificação
+        %th
+    %tbody
+      - @terminals.each do |terminal|
+        %tr
+          %th{ scope: 'row' }
+            = terminal.id
+          %td
+            = terminal.title
+          %td
+            = I18n.l(terminal.updated_at, format: :long)
+          %td.text-center.td-button
+            = link_to 'Editar', edit_panel_terminal_path(terminal), class: 'btn btn-raised btn-sm btn-warning no-margin'
