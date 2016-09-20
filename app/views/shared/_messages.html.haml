@@ -2,4 +2,4 @@
   - if msg.is_a?(String)
     .alert.alert-dismissible{ class: alert_class(type) }
       %a.close{ 'data-dismiss': 'alert', href: '#' } ×
-      = msg
+      = msg.html_safe

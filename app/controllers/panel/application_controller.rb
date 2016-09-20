@@ -13,7 +13,7 @@ class Panel::ApplicationController < ActionController::Base
 
     def verify_admin
       if current_user.admin?
-        flash[:error] = 'Você não possui permissão para realizar esta ação.'
+        flash[:error] = 'Você <strong>não</strong> possui permissão para realizar esta ação.'
         redirect_to root_path
       end
     end
@@ -24,7 +24,7 @@ class Panel::ApplicationController < ActionController::Base
     end
 
     def record_not_found
-      flash[:error] = 'Você não possui autorização para acessar esse recurso.'
+      flash[:error] = 'Você <strong>não</strong> possui autorização para acessar esse recurso.'
       redirect_to panel_root_path
     end
 end
