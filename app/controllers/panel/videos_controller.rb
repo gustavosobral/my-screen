@@ -1,25 +1,23 @@
 class Panel::VideosController < Panel::ApplicationController
-  before_action :correct_user, only: [:edit, :update, :destroy]
-
   add_breadcrumb 'Vídeos', :panel_videos_path
 
   def index
-    @videos = Video.where(user: current_user).page(params[:page])
+    @videos = current_user.videos.page(params[:page])
   end
 
   def new
     add_breadcrumb 'Novo'
-    @video = Video.new
+    @video = current_user.videos.new
   end
 
   def edit
     add_breadcrumb 'Editar'
+    @video = set_video
   end
 
   def create
     add_breadcrumb 'Novo'
-    @video = Video.new(video_params)
-    @video.user = current_user
+    @video = current_user.videos.new(video_params)
 
     if @video.save
       flash[:notice] = 'Vídeo salvo com sucesso!'
@@ -31,6 +29,8 @@ class Panel::VideosController < Panel::ApplicationController
 
   def update
     add_breadcrumb 'Editar'
+    @video = set_video
+
     if @video.update(video_params)
       flash[:notice] = 'Vídeo alterado com sucesso!'
       redirect_to panel_videos_path
@@ -40,6 +40,7 @@ class Panel::VideosController < Panel::ApplicationController
   end
 
   def destroy
+    @video = set_video
     @video.destroy
     flash[:notice] = 'Vídeo excluído com sucesso!'
     redirect_to panel_videos_path
@@ -47,12 +48,8 @@ class Panel::VideosController < Panel::ApplicationController
 
   private
 
-    def correct_user
-      @video = Video.find_by(user: current_user, id: params[:id])
-      if @video.nil?
-        flash[:error] = 'Você não possui autorização para acessar esse recurso.'
-        redirect_to panel_root_path
-      end
+    def set_video
+      current_user.videos.find(params[:id])
     end
 
     def video_params
