@@ -13,7 +13,7 @@
   .form-group
     = f.label :user_id, 'Usuário', class: 'control-label col-xs-2'
     .col-xs-10
-      = f.collection_select(:user_id, User.where(admin: false), :id, :name, {}, { class: 'form-control' })
+      = f.collection_select(:user_id, User.where(admin: false), :id, :email, {}, { class: 'form-control' })
   .form-group.text-center
     = link_to admin_terminals_path, class: 'btn btn-raised btn-danger margin-sides-15' do
       Cancelar
