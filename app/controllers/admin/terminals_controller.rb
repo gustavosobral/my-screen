@@ -53,6 +53,6 @@ class Admin::TerminalsController < Admin::ApplicationController
     end
 
     def terminals_params
-      params.require(:terminal).permit(:user_id, :title)
+      params.require(:terminal).permit(:user_id, :playlist_id, :title)
     end
 end

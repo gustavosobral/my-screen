@@ -14,6 +14,11 @@
     = f.label :user_id, 'Usuário', class: 'control-label col-xs-2'
     .col-xs-10
       = f.collection_select(:user_id, User.where(admin: false), :id, :email, {}, { class: 'form-control' })
+  - if @terminal.user
+    .form-group
+      = f.label :playlist_id, 'Playlist', class: 'control-label col-xs-2'
+      .col-xs-10
+        = f.collection_select(:playlist_id, @terminal.user.playlists, :id, :title, { include_blank: true }, { class: 'form-control' })
   .form-group.text-center
     = link_to admin_terminals_path, class: 'btn btn-raised btn-danger margin-sides-15' do
       Cancelar
