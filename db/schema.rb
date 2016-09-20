@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918125122) do
+ActiveRecord::Schema.define(version: 20160920025935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "playlist_items", force: :cascade do |t|
+    t.integer  "position"
+    t.float    "duration"
+    t.integer  "playlist_id"
+    t.integer  "resource_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "playlist_items", ["playlist_id"], name: "index_playlist_items_on_playlist_id", using: :btree
+  add_index "playlist_items", ["resource_id"], name: "index_playlist_items_on_resource_id", using: :btree
+
+  create_table "playlists", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.float    "duration"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "playlists", ["user_id"], name: "index_playlists_on_user_id", using: :btree
 
   create_table "resources", force: :cascade do |t|
     t.string   "title"
@@ -31,10 +54,12 @@ ActiveRecord::Schema.define(version: 20160918125122) do
   create_table "terminals", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "playlist_id"
   end
 
+  add_index "terminals", ["playlist_id"], name: "index_terminals_on_playlist_id", using: :btree
   add_index "terminals", ["user_id"], name: "index_terminals_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -57,6 +82,10 @@ ActiveRecord::Schema.define(version: 20160918125122) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "playlist_items", "playlists"
+  add_foreign_key "playlist_items", "resources"
+  add_foreign_key "playlists", "users"
   add_foreign_key "resources", "users"
+  add_foreign_key "terminals", "playlists"
   add_foreign_key "terminals", "users"
 end
