@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
     resources :images   , except: [:show]
     resources :videos   , except: [:show]
+    resources :playlists, except: [:show]
     resources :terminals, only:   [:index, :edit, :update]
   end
 
