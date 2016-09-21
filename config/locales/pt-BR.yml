@@ -121,8 +121,8 @@ pt-BR:
       odd: deve ser ímpar
       record_invalid: ! 'A validação falhou: %{errors}'
       restrict_dependent_destroy:
-        one: "Não é possível excluir o registro pois existe um %{record} dependente"
-        many: "Não é possível excluir o registro pois existem %{record} dependentes"
+        one: 'Não é possível excluir o registro pois existe um %{record} dependente'
+        many: 'Não é possível excluir o registro pois existem %{record} dependentes'
       taken: já está em uso
       too_long: ! 'é muito longo (máximo: %{count} caracteres)'
       too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
@@ -143,9 +143,9 @@ pt-BR:
         other: ! 'Não foi possível gravar %{model}: %{count} erros.'
   views:
     pagination:
-      first: "&laquo; Primeira"
-      last: "Última &raquo;"
-      truncate: "&hellip;"
+      first: '&laquo; Primeira'
+      last: 'Última &raquo;'
+      truncate: '&hellip;'
   helpers:
     select:
       prompt: Por favor selecione
@@ -153,6 +153,14 @@ pt-BR:
       create: Criar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: 'Nenhum %{entry_name} encontrado'
+          one: 'Mostrando <b>1</b> %{entry_name}'
+          other: 'Mostrando <b>todos %{count}</b> %{entry_name}'
+      more_pages:
+        display_entries: 'Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total'
   number:
     currency:
       format:
@@ -222,7 +230,6 @@ pt-BR:
       simple: ! '%d/%m/%Y'
       regular: '%d/%m/%Y %H:%M'
     pm: ''
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:
       <<: *errors
