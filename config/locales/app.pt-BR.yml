@@ -1,10 +1,26 @@
 pt-BR:
   activerecord:
     models:
-      user: Usuário
-      image: Imagem
-      video: Vídeo
-      terminal: Terminal
+      user:
+        zero: Usuário
+        one: Usuário
+        other: Usuários
+      image:
+        zero: Imagem
+        one: Imagem
+        other: Imagens
+      video:
+        zero: Vídeo
+        one: Vídeo
+        other: Vídeos
+      terminal:
+        zero: Terminal
+        one: Terminal
+        other: Terminais
+      playlist:
+        zero: Playlist
+        one: Playlist
+        other: Playlists
     attributes:
       user:
         name: Nome
@@ -21,3 +37,7 @@ pt-BR:
         file: Arquivo
       terminal:
         title: Título
+      playlist:
+        title: Título
+        description: Descrição
+        duration: Duração
