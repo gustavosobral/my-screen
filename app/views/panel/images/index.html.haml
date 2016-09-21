@@ -1,18 +1,21 @@
 - provide(:title, 'Imagens')
 - provide(:dashboard_title, 'Imagens')
 
-.content-header.row
-  .col-md-4
-    = link_to 'Nova imagem', new_panel_image_path, class: 'btn btn-raised btn-success'
-  .col-md-3.col-md-offset-5.text-right
-    %form.search-form
-      .form-group.input-group.no-margin.no-padding
-        %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
-        %span.input-group-btn
-          %button.btn.btn-primary.no-margin
-            %i.material-icons search
+- unless @images.empty?
+  .content-header.row
+    .col-md-4
+      = link_to 'Nova imagem', new_panel_image_path, class: 'btn btn-raised btn-success'
+    .col-md-3.col-md-offset-5.text-right
+      %form.search-form
+        .form-group.input-group.no-margin.no-padding
+          %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
+          %span.input-group-btn
+            %button.btn.btn-primary.no-margin
+              %i.material-icons search
 
-= render 'gallery'
+  = render 'gallery'
+- else
+  = render 'cta'
 
 %hr.no-margin.footer-gallery
 .row

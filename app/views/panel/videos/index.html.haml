@@ -1,18 +1,21 @@
 - provide(:title, 'Vídeos')
 - provide(:dashboard_title, 'Vídeos')
 
-.content-header.row
-  .col-md-4
-    = link_to 'Novo vídeo', new_panel_video_path, class: 'btn btn-raised btn-success'
-  .col-md-3.col-md-offset-5.text-right
-    %form.search-form
-      .form-group.input-group.no-margin.no-padding
-        %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
-        %span.input-group-btn
-          %button.btn.btn-primary.no-margin
-            %i.material-icons search
+- unless @videos.empty?
+  .content-header.row
+    .col-md-4
+      = link_to 'Novo vídeo', new_panel_video_path, class: 'btn btn-raised btn-success'
+    .col-md-3.col-md-offset-5.text-right
+      %form.search-form
+        .form-group.input-group.no-margin.no-padding
+          %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
+          %span.input-group-btn
+            %button.btn.btn-primary.no-margin
+              %i.material-icons search
 
-= render 'gallery'
+  = render 'gallery'
+- else
+  = render 'cta'
 
 %hr.no-margin.footer-gallery
 .row
