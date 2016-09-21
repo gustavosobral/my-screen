@@ -61,7 +61,8 @@ table { background-color: #fff }
 
 .alert { margin-bottom: 10px; }
 
-.panel { margin-top: 30px; }
+.panel-table { margin-top: 30px; }
+.panel-gallery { margin-bottom: 30px; }
 
 .full-screen .tooltip { width: 74px; }
 
@@ -120,12 +121,15 @@ table { background-color: #fff }
 
 .panel-screen .panel-heading { background-color: #222; }
 .panel-footer .pagination { margin: 6px 0 0 0; }
+.panel-body.panel-gallery { padding: 8px; }
 
 .thead-default th {
   color: rgba(0, 0, 0, .54);
   background-color: rgba(0, 0, 0, .12); }
 
 .page-entries { margin: 12px 0; }
+.page-entries-gallery { margin-top: 25px; }
+.footer-gallery .pagination { margin-bottom: 0 }
 
 #error-explanation {
   color: red;
