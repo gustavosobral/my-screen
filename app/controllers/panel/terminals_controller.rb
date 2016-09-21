@@ -28,6 +28,6 @@ class Panel::TerminalsController < Panel::ApplicationController
     end
 
     def terminals_params
-      params.require(:terminal).permit(:title)
+      params.require(:terminal).permit(:playlist_id, :title)
     end
 end

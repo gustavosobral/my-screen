@@ -5,16 +5,16 @@
         %i.material-icons video_label
         Terminais
     %li
-      %a
+      = link_to panel_playlists_path do
         %i.material-icons playlist_play
         Playlists
       %ul
-        %li
+        %li.disabled
           %a.withoutripple
             %i.material-icons featured_video
             Templates
-    %li
-      %a
+    %li.disabled
+      %a.withoutripple
         %i.material-icons video_library
         Biblioteca
       %ul
@@ -26,11 +26,11 @@
           = link_to panel_images_path do
             %i.material-icons insert_photo
             Imagens
-    %li
-      %a
+    %li.disabled
+      %a.withoutripple
         %i.material-icons rss_feed
         RSS Feeds
-    %li
-      %a
+    %li.disabled
+      %a.withoutripple
         %i.material-icons credit_card
         Fatura

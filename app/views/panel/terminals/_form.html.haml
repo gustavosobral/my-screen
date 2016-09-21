@@ -10,6 +10,10 @@
       = f.text_field :title, placeholder: 'Título', class: 'form-control', autofocus: true
       %p.help-block
         Limite máximo de 50 caracteres
+  .form-group
+    = f.label :playlist_id, 'Playlist', class: 'control-label col-xs-2'
+    .col-xs-10
+      = f.collection_select(:playlist_id, current_user.playlists, :id, :title, { include_blank: true }, { class: 'form-control' })
   .form-group.text-center
     = link_to panel_terminals_path, class: 'btn btn-raised btn-danger margin-sides-15' do
       Cancelar

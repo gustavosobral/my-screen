@@ -8,7 +8,7 @@ feature 'I switch user', type: :feature do
 
     # Switch user
     find("form[action='#{switch_user_path(user)}']").click_button
-    expect(page).to have_content "Você está visualizando o painel como #{user.name}."
+    expect(page).to have_content "Você está visualizando o painel como #{user.name} (#{user.email})."
     expect(page).to have_content user.name
 
     # Switch back

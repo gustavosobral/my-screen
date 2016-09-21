@@ -1,10 +1,24 @@
 - provide(:title, 'Usuários')
 - provide(:dashboard_title, 'Usuários')
 
-.content-header.row
-  .col-md-4.col-md-offset-4
-    = paginate @users
-  .col-md-3.col-md-offset-1.text-right
-    = link_to 'Novo usuário', new_admin_user_path, class: 'btn btn-raised btn-success'
-
-= render 'table'
+.panel.panel-screen.panel-table
+  .panel-heading
+  .panel-body
+    .content-header.row
+      .col-md-4
+        = link_to 'Novo usuário', new_admin_user_path, class: 'btn btn-raised btn-success'
+      .col-md-3.col-md-offset-5.text-right
+        %form.search-form
+          .form-group.input-group.no-margin.no-padding
+            %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
+            %span.input-group-btn
+              %button.btn.btn-primary.no-margin
+                %i.material-icons search
+    = render 'table'
+  .panel-footer
+    .row
+      .col-sm-4
+        .page-entries
+          = page_entries_info @users
+      .col-sm-6.col-sm-offset-2.text-right
+        = paginate @users

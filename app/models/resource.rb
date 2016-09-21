@@ -1,5 +1,6 @@
 class Resource < ActiveRecord::Base
   belongs_to :user
+  has_many :playlist_items, dependent: :destroy
 
   default_scope { order(updated_at: :desc) }
 

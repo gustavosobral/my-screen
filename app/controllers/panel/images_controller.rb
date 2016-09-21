@@ -1,25 +1,23 @@
 class Panel::ImagesController < Panel::ApplicationController
-  before_action :correct_user, only: [:edit, :update, :destroy]
-
   add_breadcrumb 'Imagens', :panel_images_path
 
   def index
-    @images = Image.where(user: current_user).page(params[:page])
+    @images = current_user.images.page(params[:page])
   end
 
   def new
     add_breadcrumb 'Nova'
-    @image = Image.new
+    @image = current_user.images.new
   end
 
   def edit
     add_breadcrumb 'Editar'
+    @image = set_image
   end
 
   def create
     add_breadcrumb 'Nova'
-    @image = Image.new(image_params)
-    @image.user = current_user
+    @image = current_user.images.new(image_params)
 
     if @image.save
       flash[:notice] = 'Imagem salva com sucesso!'
@@ -31,6 +29,8 @@ class Panel::ImagesController < Panel::ApplicationController
 
   def update
     add_breadcrumb 'Editar'
+    @image = set_image
+
     if @image.update(image_params)
       flash[:notice] = 'Imagem alterada com sucesso!'
       redirect_to panel_images_path
@@ -40,6 +40,7 @@ class Panel::ImagesController < Panel::ApplicationController
   end
 
   def destroy
+    @image = set_image
     @image.destroy
     flash[:notice] = 'Imagem excluída com sucesso!'
     redirect_to panel_images_path
@@ -47,12 +48,8 @@ class Panel::ImagesController < Panel::ApplicationController
 
   private
 
-    def correct_user
-      @image = Image.find_by(user: current_user, id: params[:id])
-      if @image.nil?
-        flash[:error] = 'Você não possui autorização para acessar esse recurso.'
-        redirect_to panel_root_path
-      end
+    def set_image
+      current_user.images.find(params[:id])
     end
 
     def image_params

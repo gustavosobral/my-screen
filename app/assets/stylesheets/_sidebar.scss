@@ -50,3 +50,14 @@
 .side-nav>li>ul>li>a:hover {
   color: #fff;
 }
+
+.navbar .navbar-nav > .disabled > a,
+.navbar .navbar-nav > .disabled > a:hover,
+.navbar .navbar-nav > .disabled > a:focus
+.navbar .navbar-nav > li ul .disabled > a,
+.navbar .navbar-nav > li ul .disabled > a:hover,
+.navbar .navbar-nav > li ul .disabled > a:focus {
+  color: inherit !important;
+  background-color: transparent !important;
+  cursor: not-allowed;
+}
