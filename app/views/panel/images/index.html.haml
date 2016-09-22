@@ -15,7 +15,7 @@
 
   = render 'gallery'
 - else
-  = render 'cta'
+  = render partial: 'shared/cta', locals: { message: 'nenhuma imagem cadastrada!', button_text: 'Nova imagem', button_link: new_panel_image_path }
 
 %hr.no-margin.footer-gallery
 .row

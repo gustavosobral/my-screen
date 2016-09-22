@@ -15,7 +15,7 @@
 
   = render 'gallery'
 - else
-  = render 'cta'
+  = render partial: 'shared/cta', locals: { message: 'nenhum vídeo cadastrado!', button_text: 'Novo vídeo', button_link: new_panel_video_path }
 
 %hr.no-margin.footer-gallery
 .row
