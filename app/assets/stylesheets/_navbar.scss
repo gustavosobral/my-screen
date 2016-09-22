@@ -7,7 +7,8 @@
 .navbar-brand { padding: 10px 15px; }
 
 .blue:hover,
-.blue:focus {
+.blue:focus,
+.user-name {
   color: #fff;
   background-color: #1565C0 !important;
 }
@@ -15,7 +16,8 @@
 .navbar-admin { background-color: #F44336 !important; }
 
 .brown:hover,
-.brown:focus {
+.brown:focus,
+.admin-name {
   color: #fff;
   background-color: #B71C1C !important;
 }
