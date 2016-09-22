@@ -1,25 +1,28 @@
 - provide(:title, 'Vídeos')
 - provide(:dashboard_title, 'Vídeos')
 
-.content-header.row
-  .col-md-4
-    = link_to 'Novo vídeo', new_panel_video_path, class: 'btn btn-raised btn-success'
-  .col-md-3.col-md-offset-5.text-right
-    %form.search-form
-      .form-group.input-group.no-margin.no-padding
-        %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
-        %span.input-group-btn
-          %button.btn.btn-primary.no-margin
-            %i.material-icons search
+- unless @videos.empty?
+  .content-header.row
+    .col-md-4
+      = link_to 'Novo vídeo', new_panel_video_path, class: 'btn btn-raised btn-success'
+    .col-md-3.col-md-offset-5.text-right
+      %form.search-form
+        .form-group.input-group.no-margin.no-padding
+          %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
+          %span.input-group-btn
+            %button.btn.btn-primary.no-margin
+              %i.material-icons search
 
-= render 'gallery'
+  = render 'gallery'
 
-%hr.no-margin.footer-gallery
-.row
-  .col-sm-4
-    .page-entries-gallery
-      = page_entries_info @videos
-  .col-sm-6.col-sm-offset-2.text-right
-    = paginate @videos
+  %hr.no-margin.footer-gallery
+    .row
+      .col-sm-4
+        .page-entries-gallery
+          = page_entries_info @videos
+      .col-sm-6.col-sm-offset-2.text-right
+        = paginate @videos
 
-= render 'modal'
+    = render 'modal'
+- else
+  = render partial: 'shared/cta', locals: { message: 'nenhum vídeo cadastrado!', button_text: 'Novo vídeo', button_link: new_panel_video_path }

@@ -1,24 +1,27 @@
 - provide(:title, 'Playlists')
 - provide(:dashboard_title, 'Playlists')
 
-.panel.panel-screen.panel-table
-  .panel-heading
-  .panel-body
-    .content-header.row
-      .col-md-4
-        = link_to 'Nova playlist', new_panel_playlist_path, class: 'btn btn-raised btn-success'
-      .col-md-3.col-md-offset-5.text-right
-        %form.search-form
-          .form-group.input-group.no-margin.no-padding
-            %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
-            %span.input-group-btn
-              %button.btn.btn-primary.no-margin
-                %i.material-icons search
-    = render 'table'
-  .panel-footer
-    .row
-      .col-sm-4
-        .page-entries
-          = page_entries_info @playlists
-      .col-sm-6.col-sm-offset-2.text-right
-        = paginate @playlists
+- unless @playlists.empty?
+  .panel.panel-screen.panel-table
+    .panel-heading
+    .panel-body
+      .content-header.row
+        .col-md-4
+          = link_to 'Nova playlist', new_panel_playlist_path, class: 'btn btn-raised btn-success'
+        .col-md-3.col-md-offset-5.text-right
+          %form.search-form
+            .form-group.input-group.no-margin.no-padding
+              %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
+              %span.input-group-btn
+                %button.btn.btn-primary.no-margin
+                  %i.material-icons search
+      = render 'table'
+    .panel-footer
+      .row
+        .col-sm-4
+          .page-entries
+            = page_entries_info @playlists
+        .col-sm-6.col-sm-offset-2.text-right
+          = paginate @playlists
+- else
+  = render partial: 'shared/cta', locals: { message: 'nenhuma playlist cadastrada!', button_text: 'Nova playlist', button_link: new_panel_playlist_path }

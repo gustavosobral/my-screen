@@ -16,7 +16,7 @@ feature 'Site user login', type: :feature do
     fill_in 'user_password', with: user.password
     submit_form
     expect(page).to have_content 'Login efetuado com sucesso!'
-    expect(page).to have_content user.name
+    expect(page).to have_content user.name.truncate(20)
     expect(page).to have_content 'Biblioteca'
 
     find('#exit').click
@@ -33,7 +33,7 @@ feature 'Site user login', type: :feature do
     fill_in 'user_password', with: admin_user.password
     submit_form
     expect(page).to have_content 'Login efetuado com sucesso!'
-    expect(page).to have_content admin_user.name
+    expect(page).to have_content admin_user.name.truncate(20)
     # Verify admin panel
     expect(page).to have_content 'Terminais'
     expect(page).to have_content 'Usuários'

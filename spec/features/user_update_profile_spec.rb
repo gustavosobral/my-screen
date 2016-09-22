@@ -5,8 +5,8 @@ feature 'I manage my profile', type: :feature do
     scenario 'updating attributes' do
       sign_in user
       visit panel_root_path
-      expect(page).to have_content user.name
-      click_link user.name
+      expect(page).to have_content user.name.truncate(20)
+      click_link user.name.truncate(20)
       fill_in 'user_name', with: 'Novo Nome'
       submit_form
       expect(page).to have_content 'Novo Nome'
@@ -15,7 +15,7 @@ feature 'I manage my profile', type: :feature do
     scenario 'do automatic logout after change password' do
       sign_in user
       visit panel_root_path
-      click_link user.name
+      click_link user.name.truncate(20)
       fill_in 'user_password', with: 'newpassword'
       fill_in 'user_password_confirmation', with: 'newpassword'
       submit_form
@@ -31,8 +31,8 @@ feature 'I manage my profile', type: :feature do
     scenario 'updating attributes' do
       sign_in admin_user
       visit admin_root_path
-      expect(page).to have_content admin_user.name
-      click_link admin_user.name
+      expect(page).to have_content admin_user.name.truncate(20)
+      click_link admin_user.name.truncate(20)
       fill_in 'user_name', with: 'Novo Admin Nome'
       submit_form
       expect(page).to have_content 'Novo Admin Nome'

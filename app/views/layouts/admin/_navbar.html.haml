@@ -10,9 +10,9 @@
         = image_tag('myscreen-white.svg', alt: 'MyScreen', size: '155x40')
     %ul.nav.top-nav.navbar-right
       %li
-        = link_to admin_profile_path, class: 'brown', 'data-original-title': 'Editar perfil', 'data-placement': 'bottom', 'data-toggle': 'tooltip' do
+        = link_to admin_profile_path, class: 'admin-name', 'data-original-title': 'Editar perfil', 'data-placement': 'bottom', 'data-toggle': 'tooltip' do
           %i.material-icons perm_identity
-          = current_user.name
+          = truncate(current_user.name, length: 20)
       %li.full-screen
         %a{ onclick: 'toggleFullScreen()', href: '', class: 'brown', 'data-original-title': 'Tela cheia', 'data-placement': 'bottom', 'data-toggle': 'tooltip' }
           %i.material-icons settings_overscan

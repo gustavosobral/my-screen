@@ -1,0 +1,6 @@
+{
+  "name": "dsl-generated-dependencies",
+  "dependencies": {
+    "plyr": "2.0.7"
+  }
+}

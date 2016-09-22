@@ -1,23 +1,33 @@
 - provide(:title, 'Terminais')
 - provide(:dashboard_title, 'Terminais')
 
-.panel.panel-screen.panel-table
-  .panel-heading
-  .panel-body
-    .content-header.row
-      .col-md-4
-      .col-md-3.col-md-offset-5.text-right
-        %form.search-form
-          .form-group.input-group.no-margin.no-padding
-            %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
-            %span.input-group-btn
-              %button.btn.btn-primary.no-margin
-                %i.material-icons search
-    = render 'table'
-  .panel-footer
-    .row
-      .col-sm-4
-        .page-entries
-          = page_entries_info @terminals
-      .col-sm-6.col-sm-offset-2.text-right
-        = paginate @terminals
+- unless @terminals.empty?
+  .panel.panel-screen.panel-table
+    .panel-heading
+    .panel-body
+      .content-header.row
+        .col-md-4
+        .col-md-3.col-md-offset-5.text-right
+          %form.search-form
+            .form-group.input-group.no-margin.no-padding
+              %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
+              %span.input-group-btn
+                %button.btn.btn-primary.no-margin
+                  %i.material-icons search
+
+      = render 'table'
+
+    .panel-footer
+      .row
+        .col-sm-4
+          .page-entries
+            = page_entries_info @terminals
+        .col-sm-6.col-sm-offset-2.text-right
+          = paginate @terminals
+- else
+  .text-center.cta
+    %i.material-icons announcement
+    %h2
+      Você não possui nenhum terminal cadastrado.
+    %h3
+      Entre em contato com um administrador do sistema.

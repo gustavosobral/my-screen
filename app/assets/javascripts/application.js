@@ -19,11 +19,15 @@
 //= require bootstrap-material-design/material
 //= require bootstrap-material-design/ripples
 
+//= require plyr/dist/plyr
+
 //= require _toggle-full-screen
 
 var ready;
 ready = function() {
+  plyr.setup();
   $.material.init();
+
   $('[data-toggle="tooltip"]').tooltip({ delay: { "show": 600, "hide": 100 } });
 
   $('#gallery-modal').on('show.bs.modal', function(e) {

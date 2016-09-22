@@ -17,6 +17,8 @@
 @import "bootstrap-material-design/bootstrap-material-design";
 @import "bootstrap-material-design/ripples";
 
+@import "plyr/dist/plyr";
+
 @import "navbar";
 @import "sidebar";
 @import "*";
@@ -45,6 +47,13 @@ legend { margin-bottom: 10px; }
 hr { background-color: #bababa; }
 
 table { background-color: #fff }
+
+.panel-home,
+.admin-home {
+  img { margin-top: 100px; }
+}
+
+.margin-top { margin-top: 10px; }
 
 .margin-sides-15 { 
   margin-left: 15px;
@@ -155,3 +164,10 @@ table { background-color: #fff }
 
 .td-button { width: 190px; }
 .td-become { width: 85px; }
+
+.cta {
+  .btn { margin-bottom: 30px; }
+  .material-icons {
+    font-size: 9em;
+    color: #969696; }
+}

@@ -15,9 +15,9 @@
             %i.material-icons arrow_back
             %span Voltar para #{original_user.name}
       %li
-        = link_to panel_profile_path, class: 'blue', 'data-original-title': 'Editar perfil', 'data-placement': 'bottom', 'data-toggle': 'tooltip' do
+        = link_to panel_profile_path, class: 'user-name', 'data-original-title': 'Editar perfil', 'data-placement': 'bottom', 'data-toggle': 'tooltip' do
           %i.material-icons perm_identity
-          = current_user.name
+          = truncate(current_user.name, length: 20)
       %li.full-screen
         %a{ onclick: 'toggleFullScreen()', href: '', class: 'blue', 'data-original-title': 'Tela cheia', 'data-placement': 'bottom', 'data-toggle': 'tooltip' }
           %i.material-icons settings_overscan

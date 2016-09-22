@@ -1,25 +1,28 @@
 - provide(:title, 'Imagens')
 - provide(:dashboard_title, 'Imagens')
 
-.content-header.row
-  .col-md-4
-    = link_to 'Nova imagem', new_panel_image_path, class: 'btn btn-raised btn-success'
-  .col-md-3.col-md-offset-5.text-right
-    %form.search-form
-      .form-group.input-group.no-margin.no-padding
-        %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
-        %span.input-group-btn
-          %button.btn.btn-primary.no-margin
-            %i.material-icons search
+- unless @images.empty?
+  .content-header.row
+    .col-md-4
+      = link_to 'Nova imagem', new_panel_image_path, class: 'btn btn-raised btn-success'
+    .col-md-3.col-md-offset-5.text-right
+      %form.search-form
+        .form-group.input-group.no-margin.no-padding
+          %input{ placeholder: 'Buscar...', type: 'text', class: 'no-margin form-control col-sm-3' }
+          %span.input-group-btn
+            %button.btn.btn-primary.no-margin
+              %i.material-icons search
 
-= render 'gallery'
+  = render 'gallery'
 
-%hr.no-margin.footer-gallery
-.row
-  .col-sm-4
-    .page-entries-gallery
-      = page_entries_info @images
-  .col-sm-6.col-sm-offset-2.text-right
-    = paginate @images
+  %hr.no-margin.footer-gallery
+    .row
+      .col-sm-4
+        .page-entries-gallery
+          = page_entries_info @images
+      .col-sm-6.col-sm-offset-2.text-right
+        = paginate @images
 
-= render 'modal'
+    = render 'modal'
+- else
+  = render partial: 'shared/cta', locals: { message: 'nenhuma imagem cadastrada!', button_text: 'Nova imagem', button_link: new_panel_image_path }
