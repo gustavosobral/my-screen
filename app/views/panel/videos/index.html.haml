@@ -14,15 +14,15 @@
               %i.material-icons search
 
   = render 'gallery'
+
+  %hr.no-margin.footer-gallery
+    .row
+      .col-sm-4
+        .page-entries-gallery
+          = page_entries_info @videos
+      .col-sm-6.col-sm-offset-2.text-right
+        = paginate @videos
+
+    = render 'modal'
 - else
   = render partial: 'shared/cta', locals: { message: 'nenhum vídeo cadastrado!', button_text: 'Novo vídeo', button_link: new_panel_video_path }
-
-%hr.no-margin.footer-gallery
-.row
-  .col-sm-4
-    .page-entries-gallery
-      = page_entries_info @videos
-  .col-sm-6.col-sm-offset-2.text-right
-    = paginate @videos
-
-= render 'modal'

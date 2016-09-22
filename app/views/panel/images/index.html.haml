@@ -14,15 +14,15 @@
               %i.material-icons search
 
   = render 'gallery'
+
+  %hr.no-margin.footer-gallery
+    .row
+      .col-sm-4
+        .page-entries-gallery
+          = page_entries_info @images
+      .col-sm-6.col-sm-offset-2.text-right
+        = paginate @images
+
+    = render 'modal'
 - else
   = render partial: 'shared/cta', locals: { message: 'nenhuma imagem cadastrada!', button_text: 'Nova imagem', button_link: new_panel_image_path }
-
-%hr.no-margin.footer-gallery
-.row
-  .col-sm-4
-    .page-entries-gallery
-      = page_entries_info @images
-  .col-sm-6.col-sm-offset-2.text-right
-    = paginate @images
-
-= render 'modal'
