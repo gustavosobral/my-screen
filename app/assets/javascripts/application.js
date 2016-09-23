@@ -18,28 +18,40 @@
 
 //= require bootstrap-material-design/material
 //= require bootstrap-material-design/ripples
-
 //= require plyr/dist/plyr
+//= require Sortable/Sortable
 
 //= require _toggle-full-screen
 
+// Functions
+showModalBinding = function(e) {
+  $('#modal-image').attr('src', $(e.relatedTarget).data('src'));
+  $('#modal-video').attr('src', $(e.relatedTarget).data('src'));
+
+  $('.modal-title').text($(e.relatedTarget).data('title'));
+  $('.modal-description').text($(e.relatedTarget).data('description'));
+};
+
+videoPauseModal = function() {
+  $('video')[0].pause();
+};
+
 var ready;
 ready = function() {
-  plyr.setup();
+  // Initialize Material and Plyr
   $.material.init();
+  plyr.setup();
 
+  // Tooltip configuration
   $('[data-toggle="tooltip"]').tooltip({ delay: { "show": 600, "hide": 100 } });
 
-  $('#gallery-modal').on('show.bs.modal', function(e) {
-    $('#modal-image').attr('src', $(e.relatedTarget).data('src'));
-    $('#modal-video').attr('src', $(e.relatedTarget).data('src'));
+  // Gallery modal events
+  $('#gallery-modal').on('show.bs.modal', showModalBinding);
+  $('#gallery-modal').on('hidden.bs.modal', videoPauseModal);
 
-    $('.modal-title').text($(e.relatedTarget).data('title'));
-    $('.modal-description').text($(e.relatedTarget).data('description'));
-  });
-
-  $('#gallery-modal').on('hidden.bs.modal', function() {
-    $('video')[0].pause();
+  var listMedias = document.getElementById('list-medias');
+  var sortable = Sortable.create(listMedias, {
+    animation: 150
   });
 };
 

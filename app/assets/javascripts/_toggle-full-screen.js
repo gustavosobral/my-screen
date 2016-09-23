@@ -1,5 +1,4 @@
 var toggleFullScreen;
-
 toggleFullScreen = function() {
   if ((document.fullScreenElement && document.fullScreenElement !== null) ||
       (!document.mozFullScreen && !document.webkitIsFullScreen)) {
@@ -19,4 +18,4 @@ toggleFullScreen = function() {
       document.webkitCancelFullScreen();
     }
   }
-}
+};
