@@ -1,6 +1,7 @@
 {
   "name": "dsl-generated-dependencies",
   "dependencies": {
-    "plyr": "2.0.7"
+    "plyr": "2.0.7",
+    "Sortable": "1.4.2"
   }
 }
