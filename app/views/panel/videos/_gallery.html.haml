@@ -1,16 +1,17 @@
-.row
-  - @videos.each do |video|
-    .col-md-3
-      .panel.panel-default.panel-gallery
-        .panel-body.panel-gallery
-          %a{ href: '#gallery-modal', 'data-toggle': 'modal', 'data-src': video.file.url,
-              'data-title': video.title, 'data-description': video.description }
-            = image_tag video.file_url(:small_thumb), class: 'img-responsive' if video.file
-          .text-center
-            %h5.gallery-title
-              = video.title
-            %p.no-margin
-              = link_to 'Editar', edit_panel_video_path(video)
-              |
-              = link_to 'Excluir', panel_video_path(video), method: :delete, data: { confirm: 'Você tem certeza?' }
+- @videos.each_slice(4).each do |group|
+  .row
+    - group.each do |video|
+      .col-md-3
+        .panel.panel-default.panel-gallery
+          .panel-body.panel-gallery
+            %a{ href: '#gallery-modal', 'data-toggle': 'modal', 'data-src': video.file.url,
+                'data-title': video.title, 'data-description': video.description }
+              = image_tag video.file_url(:thumb), class: 'img-responsive' if video.file
+            .text-center
+              %h5.gallery-title
+                = video.title
+              %p.no-margin
+                = link_to 'Editar', edit_panel_video_path(video)
+                |
+                = link_to 'Excluir', panel_video_path(video), method: :delete, data: { confirm: 'Você tem certeza?' }
 

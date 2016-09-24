@@ -38,7 +38,7 @@ class VideoUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :gen_video_thumb => [710, 400]
+    process :gen_video_thumb => [390, 220]
 
     def full_filename(_)
       super.chomp('mp4') + 'png'
@@ -46,7 +46,7 @@ class VideoUploader < CarrierWave::Uploader::Base
   end
 
   version :small_thumb do
-    process :gen_video_thumb => [390, 220]
+    process :gen_video_thumb => [70, 70]
 
     def full_filename(_)
       super.chomp('mp4') + 'png'

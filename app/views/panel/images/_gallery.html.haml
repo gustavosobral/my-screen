@@ -1,16 +1,16 @@
-.row
-  - @images.each do |image|
-    .col-md-3
-      .panel.panel-default.panel-gallery
-        .panel-body.panel-gallery
-          %a{ href: '#gallery-modal', 'data-toggle': 'modal', 'data-src': image.file.url,
-              'data-title': image.title, 'data-description': image.description }
-            = image_tag image.file_url(:small_thumb), class: 'img-responsive' if image.file
-          .text-center
-            %h5.gallery-title
-              = image.title
-            %p.no-margin
-              = link_to 'Editar', edit_panel_image_path(image)
-              |
-              = link_to 'Excluir', panel_image_path(image), method: :delete, data: { confirm: 'Você tem certeza?' }
-
+- @images.each_slice(4).each do |group|
+  .row
+    - group.each do |image|
+      .col-md-3
+        .panel.panel-default.panel-gallery
+          .panel-body.panel-gallery
+            %a{ href: '#gallery-modal', 'data-toggle': 'modal', 'data-src': image.file.url,
+                'data-title': image.title, 'data-description': image.description }
+              = image_tag image.file_url(:thumb), class: 'img-responsive' if image.file
+            .text-center
+              %h5.gallery-title
+                = image.title
+              %p.no-margin
+                = link_to 'Editar', edit_panel_image_path(image)
+                |
+                = link_to 'Excluir', panel_image_path(image), method: :delete, data: { confirm: 'Você tem certeza?' }

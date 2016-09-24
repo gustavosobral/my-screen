@@ -21,7 +21,7 @@
 //= require plyr/dist/plyr
 //= require Sortable/Sortable
 
-//= require _toggle-full-screen
+//= require _toggle_full_screen
 
 // Functions
 showModalBinding = function(e) {
@@ -49,11 +49,11 @@ ready = function() {
   $('#gallery-modal').on('show.bs.modal', showModalBinding);
   $('#gallery-modal').on('hidden.bs.modal', videoPauseModal);
 
+  $('.toggle-fullscreen').click(toggleFullScreen);
   var listMedias = document.getElementById('list-medias');
   var sortable = Sortable.create(listMedias, {
     animation: 150
   });
 };
 
-$(document).ready(ready);
 $(document).on('turbolinks:load', ready);
