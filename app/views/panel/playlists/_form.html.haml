@@ -1,0 +1,47 @@
+= form_for([:panel, @playlist], html: { class: 'form-horizontal' }) do |f|
+
+  = render partial: 'shared/error_messages', locals: { resource: @playlist }
+  .col-md-8.col-md-offset-2.override-well
+    .well
+      %fieldset
+        %legend
+          Informações
+
+      .form-group
+        = f.label :title, 'Título', class: 'control-label col-xs-2'
+        .col-xs-10
+          = f.text_field :title, placeholder: 'Título', class: 'form-control', autofocus: true
+          %p.help-block
+            Limite máximo de 45 caracteres
+      .form-group
+        = f.label :description, ' Descrição', class: 'control-label col-xs-2'
+        .col-xs-10
+          = f.text_area :description, placeholder: 'Descrição', class: 'form-control', rows: 5
+          %p.help-block
+            Limite máximo de 255 caracteres
+
+  .col-md-8.col-md-offset-2.override-well
+    .well
+      %fieldset
+        %legend
+          .row
+            .col-xs-6
+              Mídias
+            .col-xs-6.text-right
+              %a{ href: '#playlist-modal', 'data-toggle': 'modal', class: 'btn btn-raised btn-success no-margin'}
+                Adicionar Mídia
+
+      #list-medias.list-group
+
+  .col-md-8.col-md-offset-2.override-well
+    .well
+      %fieldset
+        %legend
+          Terminais
+
+      = render 'form_terminals'
+
+    .form-group.text-center
+      = link_to panel_playlists_path, class: 'btn btn-raised btn-danger margin-sides-15' do
+        Cancelar
+      = f.submit class: 'btn btn-raised btn-success margin-sides-15'

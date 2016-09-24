@@ -8,6 +8,7 @@ class Panel::PlaylistsController < Panel::ApplicationController
   def new
     add_breadcrumb 'Nova'
     @playlist = current_user.playlists.new
+    @resources = (current_user.videos + current_user.images).shuffle
   end
 
   def edit

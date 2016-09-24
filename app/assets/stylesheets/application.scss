@@ -153,6 +153,8 @@ table { background-color: #fff }
 
 .modal-description { margin-top: 20px; }
 
+.modal-content .modal-footer button { margin-bottom: 10px; }
+
 #gallery-modal {
   .img-responsive { display: inline; }
   .modal-footer {
@@ -171,3 +173,10 @@ table { background-color: #fff }
     font-size: 9em;
     color: #969696; }
 }
+
+.empty-warning .material-icons {
+  font-size: 5em;
+  color: #969696; }
+
+#list-medias,
+#list-terminals { margin-top: 20px; }

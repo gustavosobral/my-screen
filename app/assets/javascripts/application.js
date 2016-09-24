@@ -22,6 +22,8 @@
 //= require Sortable/Sortable
 
 //= require _toggle_full_screen
+//= require _add_resource_to_playlist
+//= require _remove_resource_from_playlist
 
 // Functions
 showModalBinding = function(e) {
@@ -50,6 +52,8 @@ ready = function() {
   $('#gallery-modal').on('hidden.bs.modal', videoPauseModal);
 
   $('.toggle-fullscreen').click(toggleFullScreen);
+  $('.add-resource-to-playlist').click(addResourceToPlaylist);
+
   var listMedias = document.getElementById('list-medias');
   var sortable = Sortable.create(listMedias, {
     animation: 150
