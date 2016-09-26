@@ -4,6 +4,8 @@ addResourceToPlaylist = function(e) {
 
   $('#list-medias').append(
       '<div id=' + $(this).data('id') + ' class="list-group-item">' +
+          '<input type="hidden" name="playlist[playlist_items][id][]" value=' + $(this).data('id') + '>' +
+          '<input type="hidden" name="playlist[playlist_items][duration][]" value=' + $(this).data('duration') + '>' +
           '<div class="row-picture">' +
             '<img class="circle" src=' + $(this).data('img-src') + ' alt="icon">' +
           '</div>' +
@@ -16,7 +18,7 @@ addResourceToPlaylist = function(e) {
             '<h4 class="list-group-item-heading">' + $(this).data('title') + '</h4>' +
             '<p class="list-group-item-text">' +
               '<b>Tipo de midia:</b> ' + $(this).data('class') + '  |  ' +
-              '<b>Duração:</b> ' + '10s' +
+              '<b>Duração:</b> ' + $(this).data('duration')  + 's' +
             '</p>' +
           '</div>' +
           '<div class="list-group-separator"></div>' +

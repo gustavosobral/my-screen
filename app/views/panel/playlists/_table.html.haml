@@ -4,6 +4,7 @@
       %tr
         %th #
         %th Título
+        %th Duração
         %th Última edição
         %th # Mídias
         %th # Terminais
@@ -15,6 +16,9 @@
             = playlist.id
           %td
             = playlist.title
+          %td
+            = succeed 's' do
+              = playlist.duration
           %td
             = I18n.l(playlist.updated_at, format: :long)
           %td

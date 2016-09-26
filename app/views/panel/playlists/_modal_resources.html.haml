@@ -12,8 +12,9 @@
               - group.each do |resource|
                 .col-md-3
                   %a{ href: '', class: 'add-resource-to-playlist',
-                      'data-id': (resource.class.model_name.human + '-' + resource.id.to_s),
+                      'data-id': resource.id,
                       'data-title': resource.title,
+                      'data-duration': resource.duration,
                       'data-img-src': resource.file_url(:small_thumb),
                       'data-class': resource.class.model_name.human }
                     = image_tag resource.file_url(:thumb), class: 'img-responsive'

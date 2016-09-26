@@ -17,7 +17,16 @@ class Panel::PlaylistsController < Panel::ApplicationController
   end
 
   def create
-    redirect_to panel_playlists_path
+    @playlist = current_user.playlists.new(playlist_params)
+    create_playlist_items @playlist
+
+    if @playlist.save
+      flash[:notice] = 'Playlist salva com sucesso!'
+      redirect_to panel_playlists_path
+    else
+      @resources = (current_user.videos + current_user.images).shuffle
+      render 'new'
+    end
   end
 
   def update
@@ -35,6 +44,16 @@ class Panel::PlaylistsController < Panel::ApplicationController
 
     def set_playlist
       current_user.playlists.find(params[:id])
+    end
+
+    def create_playlist_items(playlist)
+      playlist.duration = 0.0
+      if params[:playlist][:playlist_items]
+        params[:playlist][:playlist_items][:id].zip(params[:playlist][:playlist_items][:duration]).each_with_index do |subarray, index|
+          playlist.playlist_items << Resource.find(subarray[0]).playlist_items.new(position: index, duration: subarray[1].to_f)
+          playlist.duration += subarray[1].to_f
+        end
+      end
     end
 
     def playlist_params
