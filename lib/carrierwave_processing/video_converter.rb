@@ -12,6 +12,7 @@ module CarrierWave
 
       FileUtils.move(current_path, tmpfile)
       file = ::FFMPEG::Movie.new(tmpfile)
+      model.duration = file.duration
       file.screenshot(current_path, { seek_time: (file.duration*0.5), resolution: "#{width}x#{height}" })
 
       FileUtils.rm(tmpfile)

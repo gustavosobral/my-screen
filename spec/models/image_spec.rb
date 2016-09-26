@@ -11,4 +11,9 @@ describe Image do
     expect(invalid_image.valid?).to be false
     expect(invalid_image.errors.messages[:file].join).to include("não é permitido o envio de arquivos \"gif\"")
   end
+
+  it 'should have default duration' do
+    image = FactoryGirl.create(:image)
+    expect(image.duration).to be 10.0
+  end
 end
