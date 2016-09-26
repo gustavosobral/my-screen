@@ -1,12 +1,12 @@
 = form_for([:panel, @playlist], html: { class: 'form-horizontal' }) do |f|
 
-  = render partial: 'shared/error_messages', locals: { resource: @playlist }
   .col-md-8.col-md-offset-2.override-well
     .well
       %fieldset
         %legend
           Informações
 
+      = render partial: 'shared/error_messages', locals: { resource: @playlist }
       .form-group
         = f.label :title, 'Título', class: 'control-label col-xs-2'
         .col-xs-10

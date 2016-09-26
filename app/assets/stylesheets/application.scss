@@ -48,6 +48,12 @@ hr { background-color: #bababa; }
 
 table { background-color: #fff }
 
+.turbolinks-progress-bar {
+  background-color: #fff;
+  height: 2px;
+  box-shadow: 0 0 10px #fff, 0 0 5px #fff;
+}
+
 .panel-home,
 .admin-home {
   img { margin-top: 100px; }

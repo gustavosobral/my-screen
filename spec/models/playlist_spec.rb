@@ -35,9 +35,9 @@ describe Playlist do
     expect(playlist.errors.messages[:duration].join).to include('não é um número')
   end
 
-  it 'duration should be greater than 1' do
-    playlist.duration = 0.5
+  it 'duration should be greater than 0' do
+    playlist.duration = 0.0
     expect(playlist.valid?).to be false
-    expect(playlist.errors.messages[:duration].join).to include('deve ser maior que 1')
+    expect(playlist.errors.messages[:duration].join).to include('deve ser maior que 0')
   end
 end
