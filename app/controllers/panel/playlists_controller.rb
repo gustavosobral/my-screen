@@ -8,19 +8,41 @@ class Panel::PlaylistsController < Panel::ApplicationController
   def new
     add_breadcrumb 'Nova'
     @playlist = current_user.playlists.new
+    @resources = set_resources
   end
 
   def edit
     add_breadcrumb 'Editar'
     @playlist = set_playlist
+    @resources = set_resources
   end
 
   def create
-    redirect_to panel_playlists_path
+    @playlist = current_user.playlists.new(playlist_params)
+    create_playlist_items @playlist
+    set_terminals @playlist
+
+    if @playlist.save
+      flash[:notice] = 'Playlist salva com sucesso!'
+      redirect_to panel_playlists_path
+    else
+      @resources = set_resources
+      render 'new'
+    end
   end
 
   def update
-    redirect_to panel_playlists_path
+    @playlist = set_playlist
+    create_playlist_items @playlist
+    set_terminals @playlist
+
+    if @playlist.update(playlist_params)
+      flash[:notice] = 'Playlist alterada com sucesso!'
+      redirect_to panel_playlists_path
+    else
+      @resources = set_resources
+      render 'edit'
+    end
   end
 
   def destroy
@@ -36,7 +58,30 @@ class Panel::PlaylistsController < Panel::ApplicationController
       current_user.playlists.find(params[:id])
     end
 
+    def set_resources
+      (current_user.videos + current_user.images).shuffle
+    end
+
     def playlist_params
       params.require(:playlist).permit(:title, :description, :duration)
+    end
+
+    def create_playlist_items(playlist)
+      playlist.duration = 0.0
+      playlist.playlist_items.clear
+      if params[:playlist][:playlist_items]
+        params[:playlist][:playlist_items][:id].zip(params[:playlist][:playlist_items][:duration]).each_with_index do |subarray, index|
+          playlist.playlist_items << Resource.find(subarray[0]).playlist_items.new(position: index, duration: subarray[1].to_f.round(1))
+          playlist.duration += subarray[1].to_f
+        end
+      end
+    end
+
+    def set_terminals(playlist)
+      if params[:playlist][:terminals]
+        params[:playlist][:terminals].each do |id|
+          playlist.terminals << Terminal.find(id)
+        end
+      end
     end
 end

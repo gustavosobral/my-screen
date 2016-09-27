@@ -14,7 +14,7 @@
           %i.material-icons perm_identity
           = truncate(current_user.name, length: 20)
       %li.full-screen
-        %a{ onclick: 'toggleFullScreen()', href: '', class: 'brown', 'data-original-title': 'Tela cheia', 'data-placement': 'bottom', 'data-toggle': 'tooltip' }
+        %a{ href: '', class: 'brown toggle-fullscreen', 'data-original-title': 'Tela cheia', 'data-placement': 'bottom', 'data-toggle': 'tooltip' }
           %i.material-icons settings_overscan
       %li
         = link_to destroy_user_session_path, id: 'exit', method: 'delete', class: 'brown', 'data-original-title': 'Sair', 'data-placement': 'bottom', 'data-toggle': 'tooltip' do

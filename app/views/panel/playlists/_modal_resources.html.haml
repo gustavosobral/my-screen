@@ -1,0 +1,31 @@
+.modal{ id: 'playlist-modal', class: 'fade' }
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button.close{ 'aria-hidden': 'true', 'data-dismiss': 'modal', type: 'button' } ×
+        %h4.modal-title
+          Buscar mídia
+      .modal-body
+        - unless @resources.empty?
+          - @resources.each_slice(4).each do |group|
+            .row
+              - group.each do |resource|
+                .col-md-3
+                  %a{ href: '', class: 'add-resource-to-playlist',
+                      'data-id': resource.id,
+                      'data-title': resource.title,
+                      'data-duration': resource.duration,
+                      'data-img-src': resource.file_url(:small_thumb),
+                      'data-class': resource.class.model_name.human }
+                    = image_tag resource.file_url(:thumb), class: 'img-responsive'
+                  %h5.gallery-title.text-center
+                    = resource.title
+        - else
+          .text-center.empty-warning
+            %i.material-icons announcement
+            %h4 Você não possui nenhuma mídia cadastrada.
+
+      .modal-footer
+        .row
+          .col-xs-8.col-xs-offset-2.text-center
+            %button.btn.btn-raised.btn-danger{ 'data-dismiss': 'modal', type: 'button' } Fechar

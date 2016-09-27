@@ -8,8 +8,12 @@ class VideoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
+
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -34,7 +38,7 @@ class VideoUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :gen_video_thumb => [710, 400]
+    process :gen_video_thumb => [390, 220]
 
     def full_filename(_)
       super.chomp('mp4') + 'png'
@@ -42,7 +46,7 @@ class VideoUploader < CarrierWave::Uploader::Base
   end
 
   version :small_thumb do
-    process :gen_video_thumb => [390, 220]
+    process :gen_video_thumb => [70, 70]
 
     def full_filename(_)
       super.chomp('mp4') + 'png'

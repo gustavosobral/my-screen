@@ -1,0 +1,22 @@
+#list-terminals.list-group
+  - unless current_user.terminals.empty?
+    - current_user.terminals.each do |terminal|
+      .list-group-item
+        .row-action-primary.checkbox
+          %label
+            %input{ type: 'checkbox', name: 'playlist[terminals][]', value: terminal.id }
+        .row-content
+          %h4.list-group-item-heading
+            = terminal.title
+          %p.list-group-item-text
+            %b Playlist atual:
+            - if terminal.playlist
+              = terminal.playlist.title
+            - else
+              Não possui playlist
+        .list-group-separator
+  - else
+    .text-center.empty-warning
+      %i.material-icons announcement
+      %h4 Você não possui nenhum terminal cadastrado.
+
