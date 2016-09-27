@@ -19,6 +19,9 @@ Style/NumericLiterals:
 Style/RedundantReturn:
   AllowMultipleReturnValues: true
 
+Style/FrozenStringLiteralComment: 
+  Enabled: false
+
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 20
