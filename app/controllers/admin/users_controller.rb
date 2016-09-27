@@ -57,10 +57,9 @@ module Admin
     end
 
     def remove_password_key
-      if params[:user][:password].blank?
-        params[:user].delete(:password)
-        params[:user].delete(:password_confirmation)
-      end
+      return unless params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
     end
   end
 end

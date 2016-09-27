@@ -13,10 +13,9 @@ module Panel
     private
 
     def verify_admin
-      if current_user.admin?
-        flash[:error] = 'Você <strong>não</strong> possui permissão para realizar esta ação.'
-        redirect_to root_path
-      end
+      return unless current_user.admin?
+      flash[:error] = 'Você <strong>não</strong> possui permissão para realizar esta ação.'
+      redirect_to root_path
     end
 
     def ffmpeg_error

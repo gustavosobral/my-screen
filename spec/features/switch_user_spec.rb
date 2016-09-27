@@ -8,7 +8,8 @@ feature 'I switch user', type: :feature do
 
     # Switch user
     click_button_by_action switch_user_path(user)
-    expect(page).to have_content "Você está visualizando o painel como #{user.name} (#{user.email})."
+    alert = "Você está visualizando o painel como #{user.name} (#{user.email})."
+    expect(page).to have_content alert
     expect(page).to have_content user.name.truncate(20)
 
     # Switch back

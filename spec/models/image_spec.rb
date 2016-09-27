@@ -9,7 +9,8 @@ describe Image do
   it 'should not accept invalid image formats' do
     invalid_image = FactoryGirl.build(:invalid_image_format)
     expect(invalid_image.valid?).to be false
-    expect(invalid_image.errors.messages[:file].join).to include("não é permitido o envio de arquivos \"gif\"")
+    message = "não é permitido o envio de arquivos \"gif\""
+    expect(invalid_image.errors.messages[:file].join).to include(message)
   end
 
   it 'should have default duration' do

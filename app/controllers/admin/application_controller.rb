@@ -10,10 +10,9 @@ module Admin
     private
 
     def verify_admin
-      unless current_user.admin?
-        flash[:error] = 'Você <strong>não</strong> possui permissão para realizar esta ação.'
-        redirect_to root_path
-      end
+      return if current_user.admin?
+      flash[:error] = 'Você <strong>não</strong> possui permissão para realizar esta ação.'
+      redirect_to root_path
     end
   end
 end

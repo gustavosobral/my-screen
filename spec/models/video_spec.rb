@@ -9,7 +9,8 @@ describe Video do
   it 'should not accept invalid video formats' do
     invalid_video = FactoryGirl.build(:invalid_video_format)
     expect(invalid_video.valid?).to be false
-    expect(invalid_video.errors.messages[:file].join).to include("não é permitido o envio de arquivos \"mkv\"")
+    message = "não é permitido o envio de arquivos \"mkv\""
+    expect(invalid_video.errors.messages[:file].join).to include(message)
   end
 
   it 'should have duration' do
