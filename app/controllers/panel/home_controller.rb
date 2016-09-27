@@ -1,6 +1,5 @@
 module Panel
   class HomeController < Panel::ApplicationController
-
     def index
     end
 

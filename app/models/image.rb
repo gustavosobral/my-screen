@@ -6,15 +6,15 @@ class Image < Resource
 
   private
 
-    # Set default duration
-    def set_duration
-      self.duration = 10.0
-    end
+  # Set default duration
+  def set_duration
+    self.duration = 10.0
+  end
 
-    # Validates the size of an uploaded image.
-    def image_size
-      if file.size > 4.megabytes
-        errors.add(:file, 'deve ser menor que 4MB')
-      end
+  # Validates the size of an uploaded image.
+  def image_size
+    if file.size > 4.megabytes
+      errors.add(:file, 'deve ser menor que 4MB')
     end
+  end
 end
