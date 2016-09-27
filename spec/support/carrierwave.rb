@@ -1,5 +1,4 @@
 RSpec.configure do |config|
-
   config.after(:all) do
     if Rails.env.test? || Rails.env.cucumber?
       tmp = FactoryGirl.build(:image)
