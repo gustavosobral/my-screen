@@ -21,21 +21,18 @@
 //= require Sortable/Sortable
 
 //= require _toggle_full_screen
+//= require _modal_events
 //= require _add_resource_to_playlist
 //= require _remove_resource_from_playlist
 
-// Functions
-showModalBinding = function(e) {
-  $('#modal-image').attr('src', $(e.relatedTarget).data('src'));
-  $('#modal-video').attr('src', $(e.relatedTarget).data('src'));
+// Modal events
+$(document).on('show.bs.modal', '#gallery-modal', showModalBinding);
+$(document).on('hidden.bs.modal', '#gallery-modal', videoPauseModal);
 
-  $('.modal-title').text($(e.relatedTarget).data('title'));
-  $('.modal-description').text($(e.relatedTarget).data('description'));
-};
-
-videoPauseModal = function() {
-  $('video')[0].pause();
-};
+// Click events
+$(document).on('click', '.remove-resource-from-playlist', removeResourceFromPlaylist);
+$(document).on('click', '.toggle-fullscreen', toggleFullScreen);
+$(document).on('click', '.add-resource-to-playlist', addResourceToPlaylist);
 
 var ready;
 ready = function() {
@@ -46,14 +43,7 @@ ready = function() {
   // Tooltip configuration
   $('[data-toggle="tooltip"]').tooltip({ delay: { "show": 600, "hide": 100 } });
 
-  // Gallery modal events
-  $('#gallery-modal').on('show.bs.modal', showModalBinding);
-  $('#gallery-modal').on('hidden.bs.modal', videoPauseModal);
-
-  $('.toggle-fullscreen').click(toggleFullScreen);
-  $('.add-resource-to-playlist').click(addResourceToPlaylist);
-  $(document).on('click', '.remove-resource-from-playlist', removeResourceFromPlaylist);
-
+  // Sortable initialization
   var listMedias = document.getElementById('list-medias');
   Sortable.create(listMedias, {
     animation: 200
