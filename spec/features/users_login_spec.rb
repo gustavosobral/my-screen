@@ -37,6 +37,5 @@ feature 'Site user login', type: :feature do
     # Verify admin panel
     expect(page).to have_content 'Terminais'
     expect(page).to have_content 'Usuários'
-
   end
 end
