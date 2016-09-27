@@ -1,12 +1,13 @@
-class Admin::ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+module Admin
+  class ApplicationController < ActionController::Base
+    protect_from_forgery with: :exception
 
-  before_action :authenticate_user!
-  before_action :verify_admin
+    before_action :authenticate_user!
+    before_action :verify_admin
 
-  add_breadcrumb 'Painel', :admin_root_path
+    add_breadcrumb 'Painel', :admin_root_path
 
-  private
+    private
 
     def verify_admin
       unless current_user.admin?
@@ -14,4 +15,5 @@ class Admin::ApplicationController < ActionController::Base
         redirect_to root_path
       end
     end
+  end
 end

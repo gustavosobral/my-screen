@@ -20,11 +20,11 @@ class MasqueradeController < ApplicationController
 
   private
 
-    def authorize_masquerade!
-      user = session[:original_user_id] ? User.find(session[:original_user_id]) : current_user
-      unless user.admin?
-        flash[:error] = 'Você não possui permissão para realizar esta ação.'
-        redirect_to root_path
-      end
+  def authorize_masquerade!
+    user = session[:original_user_id] ? User.find(session[:original_user_id]) : current_user
+    unless user.admin?
+      flash[:error] = 'Você não possui permissão para realizar esta ação.'
+      redirect_to root_path
     end
+  end
 end
