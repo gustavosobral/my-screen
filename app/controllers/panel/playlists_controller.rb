@@ -68,6 +68,7 @@ class Panel::PlaylistsController < Panel::ApplicationController
 
     def create_playlist_items(playlist)
       playlist.duration = 0.0
+      playlist.playlist_items.clear
       if params[:playlist][:playlist_items]
         params[:playlist][:playlist_items][:id].zip(params[:playlist][:playlist_items][:duration]).each_with_index do |subarray, index|
           playlist.playlist_items << Resource.find(subarray[0]).playlist_items.new(position: index, duration: subarray[1].to_f.round(1))
