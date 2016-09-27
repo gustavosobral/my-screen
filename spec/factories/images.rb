@@ -1,12 +1,18 @@
 FactoryGirl.define do
   factory :image do
     user
-    title         { Faker::Lorem.characters(20) }
-    description   { Faker::Lorem.characters(120) }
-    file          { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'PbPYzVD.jpg')) }
+    title       { Faker::Lorem.characters(20) }
+    description { Faker::Lorem.characters(120) }
+    file do
+      file = File.join(Rails.root, 'spec', 'fixtures', 'PbPYzVD.jpg')
+      Rack::Test::UploadedFile.new(file)
+    end
   end
 
   factory :invalid_image_format, parent: :image do
-    file          { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', '120430.gif')) }
+    file do
+      file = File.join(Rails.root, 'spec', 'fixtures', '120430.gif')
+      Rack::Test::UploadedFile.new(file)
+    end
   end
 end

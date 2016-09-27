@@ -1,21 +1,21 @@
-class Panel::ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+module Panel
+  class ApplicationController < ActionController::Base
+    protect_from_forgery with: :exception
 
-  before_action :authenticate_user!
-  before_action :verify_admin
+    before_action :authenticate_user!
+    before_action :verify_admin
 
-  rescue_from FFMPEG::Error,                with: :ffmpeg_error
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+    rescue_from FFMPEG::Error,                with: :ffmpeg_error
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-  add_breadcrumb 'Painel', :panel_root_path
+    add_breadcrumb 'Painel', :panel_root_path
 
-  private
+    private
 
     def verify_admin
-      if current_user.admin?
-        flash[:error] = 'Você <strong>não</strong> possui permissão para realizar esta ação.'
-        redirect_to root_path
-      end
+      return unless current_user.admin?
+      flash[:error] = 'Você <strong>não</strong> possui permissão para realizar esta ação.'
+      redirect_to root_path
     end
 
     def ffmpeg_error
@@ -27,4 +27,5 @@ class Panel::ApplicationController < ActionController::Base
       flash[:error] = 'Você <strong>não</strong> possui autorização para acessar esse recurso.'
       redirect_to panel_root_path
     end
+  end
 end

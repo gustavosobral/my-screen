@@ -17,7 +17,8 @@ feature 'As an User I manage Video CRUD', type: :feature do
     # Create
     fill_in 'video_title', with: video.title
     fill_in 'video_description', with: video.description
-    attach_file('video_file', File.join(Rails.root, 'spec', 'fixtures', 'SampleVideo_1280x720_1mb.mp4'))
+    file = File.join(Rails.root, 'spec', 'fixtures', 'SampleVideo_1280x720_1mb.mp4')
+    attach_file('video_file', file)
     submit_form
     expect(current_path).to eq(panel_videos_path)
     expect(page).to have_content video.title
