@@ -36,6 +36,7 @@ group :development, :test do
   gem 'awesome_print',          '1.6.1'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'rubocop', require: false
 end
 
 group :development do
