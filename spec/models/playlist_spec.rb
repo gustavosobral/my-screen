@@ -38,6 +38,6 @@ describe Playlist do
   it 'duration should be greater than 0' do
     playlist.duration = 0.0
     expect(playlist.valid?).to be false
-    expect(playlist.errors.messages[:duration].join).to include('deve ser maior que 0')
+    expect(playlist.errors.messages[:duration].join).to include('deve ser maior que 0.0')
   end
 end

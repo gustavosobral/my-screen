@@ -4,6 +4,7 @@
       %tr
         %th #
         %th Título
+        %th Playlist
         %th Última modificação
         %th
     %tbody
@@ -13,6 +14,11 @@
             = terminal.id
           %td
             = terminal.title
+          %td
+            - if terminal.playlist
+              = terminal.playlist.title
+            - else
+              Não possui playlist
           %td
             = I18n.l(terminal.updated_at, format: :long)
           %td.text-center.td-button

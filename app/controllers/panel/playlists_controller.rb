@@ -19,6 +19,7 @@ class Panel::PlaylistsController < Panel::ApplicationController
   def create
     @playlist = current_user.playlists.new(playlist_params)
     create_playlist_items @playlist
+    set_terminals @playlist
 
     if @playlist.save
       flash[:notice] = 'Playlist salva com sucesso!'
@@ -50,8 +51,16 @@ class Panel::PlaylistsController < Panel::ApplicationController
       playlist.duration = 0.0
       if params[:playlist][:playlist_items]
         params[:playlist][:playlist_items][:id].zip(params[:playlist][:playlist_items][:duration]).each_with_index do |subarray, index|
-          playlist.playlist_items << Resource.find(subarray[0]).playlist_items.new(position: index, duration: subarray[1].to_f)
+          playlist.playlist_items << Resource.find(subarray[0]).playlist_items.new(position: index, duration: subarray[1].to_f.round(1))
           playlist.duration += subarray[1].to_f
+        end
+      end
+    end
+
+    def set_terminals(playlist)
+      if params[:playlist][:terminals]
+        params[:playlist][:terminals].each do |id|
+          playlist.terminals << Terminal.find(id)
         end
       end
     end
