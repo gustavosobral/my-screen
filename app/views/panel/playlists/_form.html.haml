@@ -31,7 +31,12 @@
               %a{ href: '#playlist-modal', 'data-toggle': 'modal', class: 'btn btn-raised btn-success no-margin'}
                 Adicionar Mídia
 
-      #list-medias.list-group
+      .list-group.no-margin
+        #list-medias
+        .list-group-item-text.text-right
+          %b Duração Total:
+          = succeed 's' do
+            %b#total-duration 0.0
 
   .col-md-8.col-md-offset-2.override-well
     .well

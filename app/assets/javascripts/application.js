@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
 
 //= require bootstrap-material-design/material
 //= require bootstrap-material-design/ripples
@@ -53,10 +52,11 @@ ready = function() {
 
   $('.toggle-fullscreen').click(toggleFullScreen);
   $('.add-resource-to-playlist').click(addResourceToPlaylist);
+  $(document).on('click', '.remove-resource-from-playlist', removeResourceFromPlaylist);
 
   var listMedias = document.getElementById('list-medias');
-  var sortable = Sortable.create(listMedias, {
-    animation: 150
+  Sortable.create(listMedias, {
+    animation: 200
   });
 };
 

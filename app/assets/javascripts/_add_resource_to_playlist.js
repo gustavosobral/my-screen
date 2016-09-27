@@ -2,6 +2,7 @@ var addResourceToPlaylist;
 addResourceToPlaylist = function(e) {
   e.preventDefault();
 
+  // Append list-item component
   $('#list-medias').append(
       '<div id=' + $(this).data('id') + ' class="list-group-item">' +
           '<input type="hidden" name="playlist[playlist_items][id][]" value=' + $(this).data('id') + '>' +
@@ -11,7 +12,8 @@ addResourceToPlaylist = function(e) {
           '</div>' +
           '<div class="row-content">' +
             '<div class="least-content">' +
-              '<a href="" class="remove-resource-from-playlist" data-id=' + $(this).data('id') + '>' +
+              '<a href="" class="remove-resource-from-playlist" ' +
+                  'data-duration=' + $(this).data('duration') + '>' +
                 '<i class="material-icons">clear</i>' +
               '</a>' +
             '</div>' +
@@ -25,6 +27,11 @@ addResourceToPlaylist = function(e) {
       '</div>'
   );
 
-  $('.remove-resource-from-playlist').click(removeResourceFromPlaylist);
+  // Add element duration to total
+  var duration = parseFloat(document.getElementById("total-duration").innerHTML) +
+                 parseFloat($(this).data('duration'));
+  $('#total-duration').html(duration.toFixed(1));
+
+  // Close modal
   $('#playlist-modal').modal('toggle');
 };

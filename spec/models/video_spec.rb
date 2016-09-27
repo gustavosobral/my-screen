@@ -14,6 +14,6 @@ describe Video do
 
   it 'should have duration' do
     video = FactoryGirl.build(:video)
-    expect(video.duration).to be 5.312
+    expect(video.duration).to be 5.3
   end
 end
