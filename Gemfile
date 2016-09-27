@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-
 gem 'rails', '4.2.7.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -23,7 +22,6 @@ gem 'high_voltage', '~> 3.0.0'
 gem 'rollbar'
 gem 'bower-rails', '~> 0.11.0'
 
-
 group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
@@ -33,7 +31,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
-  gem 'awesome_print',          '1.6.1'
+  gem 'awesome_print', '1.6.1'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rubocop', require: false
@@ -49,7 +47,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
-  gem 'codecov', :require => false
+  gem 'codecov', require: false
 end
 
 group :production do
