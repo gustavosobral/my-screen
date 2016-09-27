@@ -8,12 +8,13 @@ class Panel::PlaylistsController < Panel::ApplicationController
   def new
     add_breadcrumb 'Nova'
     @playlist = current_user.playlists.new
-    @resources = (current_user.videos + current_user.images).shuffle
+    @resources = set_resources
   end
 
   def edit
     add_breadcrumb 'Editar'
     @playlist = set_playlist
+    @resources = set_resources
   end
 
   def create
@@ -25,13 +26,23 @@ class Panel::PlaylistsController < Panel::ApplicationController
       flash[:notice] = 'Playlist salva com sucesso!'
       redirect_to panel_playlists_path
     else
-      @resources = (current_user.videos + current_user.images).shuffle
+      @resources = set_resources
       render 'new'
     end
   end
 
   def update
-    redirect_to panel_playlists_path
+    @playlist = set_playlist
+    create_playlist_items @playlist
+    set_terminals @playlist
+
+    if @playlist.update(playlist_params)
+      flash[:notice] = 'Playlist alterada com sucesso!'
+      redirect_to panel_playlists_path
+    else
+      @resources = set_resources
+      render 'edit'
+    end
   end
 
   def destroy
@@ -45,6 +56,14 @@ class Panel::PlaylistsController < Panel::ApplicationController
 
     def set_playlist
       current_user.playlists.find(params[:id])
+    end
+
+    def set_resources
+      (current_user.videos + current_user.images).shuffle
+    end
+
+    def playlist_params
+      params.require(:playlist).permit(:title, :description, :duration)
     end
 
     def create_playlist_items(playlist)
@@ -63,9 +82,5 @@ class Panel::PlaylistsController < Panel::ApplicationController
           playlist.terminals << Terminal.find(id)
         end
       end
-    end
-
-    def playlist_params
-      params.require(:playlist).permit(:title, :description, :duration)
     end
 end

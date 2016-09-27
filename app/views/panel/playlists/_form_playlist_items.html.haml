@@ -1,0 +1,22 @@
+- @playlist.playlist_items.each do |item|
+  .list-group-item
+    %input{ name: 'playlist[playlist_items][id][]', type: 'hidden', value: item.resource.id }
+    %input{ name: 'playlist[playlist_items][duration][]', type: 'hidden', value: item.duration }
+    .row-picture
+      %img.circle{ src: item.resource.file_url(:small_thumb) }
+    .row-content
+      .least-content
+        %a.remove-resource-from-playlist{ 'data-duration': item.duration, href: '' }
+          %i.material-icons clear
+      %h4.list-group-item-heading
+        = item.resource.title
+      %p.list-group-item-text
+        %b
+          Tipo de midia:
+        = item.resource.class.model_name.human
+        |
+        %b
+          Duração:
+        = succeed 's' do
+          = item.duration
+    .list-group-separator

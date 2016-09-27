@@ -28,15 +28,23 @@
             .col-xs-6
               Mídias
             .col-xs-6.text-right
-              %a{ href: '#playlist-modal', 'data-toggle': 'modal', class: 'btn btn-raised btn-success no-margin'}
+              %a{ href: '#playlist-modal', 'data-toggle': 'modal', class: 'btn btn-raised btn-success' }
                 Adicionar Mídia
 
       .list-group.no-margin
+        .list-group-item
+          .list-group-separator.no-margin
         #list-medias
+          - unless @playlist.playlist_items.empty?
+            = render 'form_playlist_items'
         .list-group-item-text.text-right
           %b Duração Total:
-          = succeed 's' do
-            %b#total-duration 0.0
+          %b#total-duration
+            = succeed 's' do
+              - if @playlist.duration
+                = @playlist.duration
+              - else
+                0.0
 
   .col-md-8.col-md-offset-2.override-well
     .well

@@ -4,7 +4,7 @@ addResourceToPlaylist = function(e) {
 
   // Append list-item component
   $('#list-medias').append(
-      '<div id=' + $(this).data('id') + ' class="list-group-item">' +
+      '<div class="list-group-item">' +
           '<input type="hidden" name="playlist[playlist_items][id][]" value=' + $(this).data('id') + '>' +
           '<input type="hidden" name="playlist[playlist_items][duration][]" value=' + $(this).data('duration') + '>' +
           '<div class="row-picture">' +

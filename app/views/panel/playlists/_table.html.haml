@@ -27,4 +27,5 @@
             = playlist.terminals.size
           %td.text-center.td-button
             = link_to 'Editar', edit_panel_playlist_path(playlist), class: 'btn btn-raised btn-sm btn-warning no-margin'
-            = link_to 'Excluir', panel_playlist_path(playlist), method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-raised btn-sm btn-danger no-margin'
+            = link_to 'Excluir', panel_playlist_path(playlist), method: :delete, data: { confirm: 'Você tem certeza?' },
+                                 class: 'btn btn-raised btn-sm btn-danger no-margin'
