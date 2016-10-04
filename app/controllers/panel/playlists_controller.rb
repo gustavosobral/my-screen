@@ -20,8 +20,8 @@ module Panel
 
     def create
       @playlist = current_user.playlists.new(playlist_params)
-      create_playlist_items @playlist
-      set_terminals @playlist
+      Playlist::SetItems.new(@playlist, params).set
+      Playlist::SetTerminals.new(@playlist, params).set
 
       if @playlist.save
         flash[:notice] = 'Playlist salva com sucesso!'
@@ -34,8 +34,8 @@ module Panel
 
     def update
       @playlist = set_playlist
-      create_playlist_items @playlist
-      set_terminals @playlist
+      Playlist::SetItems.new(@playlist, params).set
+      Playlist::SetTerminals.new(@playlist, params).set
 
       if @playlist.update(playlist_params)
         flash[:notice] = 'Playlist alterada com sucesso!'
@@ -65,23 +65,6 @@ module Panel
 
     def playlist_params
       params.require(:playlist).permit(:title, :description, :duration)
-    end
-
-    def create_playlist_items(playlist)
-      playlist.duration = 0.0
-      playlist.playlist_items.clear
-      return unless params[:playlist][:playlist_items]
-      params[:playlist][:playlist_items][:id].zip(params[:playlist][:playlist_items][:duration]).each_with_index do |subarray, index|
-        playlist.playlist_items << Resource.find(subarray[0]).playlist_items.new(position: index, duration: subarray[1].to_f.round(1))
-        playlist.duration += subarray[1].to_f
-      end
-    end
-
-    def set_terminals(playlist)
-      return unless params[:playlist][:terminals]
-      params[:playlist][:terminals].each do |id|
-        playlist.terminals << Terminal.find(id)
-      end
     end
   end
 end
