@@ -20,8 +20,7 @@ module Admin
       add_breadcrumb 'Novo'
       @user = User.new(user_params)
       if @user.save
-        flash[:notice] = 'Usuário salvo com sucesso!'
-        redirect_to admin_users_path
+        redirect_to admin_users_path, notice: 'Usuário salvo com sucesso!'
       else
         render 'new'
       end
@@ -32,8 +31,7 @@ module Admin
       remove_password_key
       @user = set_user
       if @user.update(user_params)
-        flash[:notice] = 'Usuário alterado com sucesso!'
-        redirect_to admin_users_path
+        redirect_to admin_users_path, notice: 'Usuário alterado com sucesso!'
       else
         render 'edit'
       end
@@ -42,8 +40,7 @@ module Admin
     def destroy
       @user = set_user
       @user.destroy
-      flash[:notice] = 'Usuário excluído com sucesso!'
-      redirect_to admin_users_path
+      redirect_to admin_users_path, notice: 'Usuário excluído com sucesso!'
     end
 
     private

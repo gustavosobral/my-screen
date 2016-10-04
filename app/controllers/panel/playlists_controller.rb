@@ -24,8 +24,7 @@ module Panel
       Playlist::SetTerminals.new(@playlist, params).set
 
       if @playlist.save
-        flash[:notice] = 'Playlist salva com sucesso!'
-        redirect_to panel_playlists_path
+        redirect_to panel_playlists_path, notice: 'Playlist salva com sucesso!'
       else
         @resources = set_resources
         render 'new'
@@ -38,8 +37,7 @@ module Panel
       Playlist::SetTerminals.new(@playlist, params).set
 
       if @playlist.update(playlist_params)
-        flash[:notice] = 'Playlist alterada com sucesso!'
-        redirect_to panel_playlists_path
+        redirect_to panel_playlists_path, notice: 'Playlist alterada com sucesso!'
       else
         @resources = set_resources
         render 'edit'
@@ -49,8 +47,7 @@ module Panel
     def destroy
       @playlist = set_playlist
       @playlist.destroy
-      flash[:notice] = 'Playlist excluída com sucesso!'
-      redirect_to panel_playlists_path
+      redirect_to panel_playlists_path, notice: 'Playlist excluída com sucesso!'
     end
 
     private

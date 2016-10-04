@@ -21,8 +21,7 @@ module Panel
       @image = current_user.images.new(image_params)
 
       if @image.save
-        flash[:notice] = 'Imagem salva com sucesso!'
-        redirect_to panel_images_path
+        redirect_to panel_images_path, notice: 'Imagem salva com sucesso!'
       else
         render 'new'
       end
@@ -33,8 +32,7 @@ module Panel
       @image = set_image
 
       if @image.update(image_params)
-        flash[:notice] = 'Imagem alterada com sucesso!'
-        redirect_to panel_images_path
+        redirect_to panel_images_path, notice: 'Imagem alterada com sucesso!'
       else
         render 'edit'
       end
@@ -43,8 +41,7 @@ module Panel
     def destroy
       @image = set_image
       @image.destroy
-      flash[:notice] = 'Imagem excluída com sucesso!'
-      redirect_to panel_images_path
+      redirect_to panel_images_path, notice: 'Imagem excluída com sucesso!'
     end
 
     private

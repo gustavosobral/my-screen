@@ -15,8 +15,7 @@ module Panel
       add_breadcrumb 'Editar'
       @terminal = set_terminal
       if @terminal.update(terminals_params)
-        flash[:notice] = 'Terminal alterado com sucesso!'
-        redirect_to panel_terminals_path
+        redirect_to panel_terminals_path, notice: 'Terminal alterado com sucesso!'
       else
         render 'edit'
       end

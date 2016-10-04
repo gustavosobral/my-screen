@@ -22,8 +22,7 @@ module Admin
       @terminal = @user.terminals.new(terminals_params)
 
       if @terminal.save
-        flash[:notice] = 'Terminal salvo com sucesso!'
-        redirect_to admin_terminals_path
+        redirect_to admin_terminals_path, notice: 'Terminal salvo com sucesso!'
       else
         render 'new'
       end
@@ -33,8 +32,7 @@ module Admin
       add_breadcrumb 'Editar'
       @terminal = set_terminal
       if @terminal.update(terminals_params)
-        flash[:notice] = 'Terminal alterado com sucesso!'
-        redirect_to admin_terminals_path
+        redirect_to admin_terminals_path, notice: 'Terminal alterado com sucesso!'
       else
         render 'edit'
       end
@@ -43,8 +41,7 @@ module Admin
     def destroy
       @terminal = set_terminal
       @terminal.destroy
-      flash[:notice] = 'Terminal excluído com sucesso!'
-      redirect_to admin_terminals_path
+      redirect_to admin_terminals_path, notice: 'Terminal excluído com sucesso!'
     end
 
     private

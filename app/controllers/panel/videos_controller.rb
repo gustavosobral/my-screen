@@ -21,8 +21,7 @@ module Panel
       @video = current_user.videos.new(video_params)
 
       if @video.save
-        flash[:notice] = 'Vídeo salvo com sucesso!'
-        redirect_to panel_videos_path
+        redirect_to panel_videos_path, notice: 'Vídeo salvo com sucesso!'
       else
         render 'new'
       end
@@ -33,8 +32,7 @@ module Panel
       @video = set_video
 
       if @video.update(video_params)
-        flash[:notice] = 'Vídeo alterado com sucesso!'
-        redirect_to panel_videos_path
+        redirect_to panel_videos_path, notice: 'Vídeo alterado com sucesso!'
       else
         render 'edit'
       end
@@ -43,8 +41,7 @@ module Panel
     def destroy
       @video = set_video
       @video.destroy
-      flash[:notice] = 'Vídeo excluído com sucesso!'
-      redirect_to panel_videos_path
+      redirect_to panel_videos_path, notice: 'Vídeo excluído com sucesso!'
     end
 
     private

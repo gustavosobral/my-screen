@@ -13,8 +13,7 @@ module Panel
       remove_password_key
       @user = current_user
       if @user.update(user_params)
-        flash[:notice] = 'Perfil alterado com sucesso!'
-        redirect_to panel_root_path
+        redirect_to panel_root_path, notice: 'Perfil alterado com sucesso!'
       else
         render 'profile'
       end
