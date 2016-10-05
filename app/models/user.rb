@@ -6,5 +6,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
+  scope :orderly, -> { order(updated_at: :desc) }
+
   validates :name, presence: true, length: { maximum: 50 }
 end

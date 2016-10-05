@@ -3,7 +3,7 @@ module Panel
     add_breadcrumb 'Terminais', :panel_terminals_path
 
     def index
-      @terminals = current_user.terminals.page(params[:page]).per(15)
+      @terminals = current_user.terminals.orderly.page(params[:page]).per(15)
     end
 
     def edit
