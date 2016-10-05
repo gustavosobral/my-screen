@@ -3,7 +3,7 @@ module Panel
     add_breadcrumb 'Imagens', :panel_images_path
 
     def index
-      @images = current_user.images.page(params[:page])
+      @images = current_user.images.page(params[:page]).per(20)
     end
 
     def new

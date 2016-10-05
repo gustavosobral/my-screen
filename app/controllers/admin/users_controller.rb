@@ -3,7 +3,7 @@ module Admin
     add_breadcrumb 'Usuários', :admin_users_path
 
     def index
-      @users = User.orderly.where(admin: false).page(params[:page]).per(15)
+      @users = User.orderly.where(admin: false).page(params[:page])
     end
 
     def new

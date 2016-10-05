@@ -3,7 +3,7 @@ module Panel
     add_breadcrumb 'Vídeos', :panel_videos_path
 
     def index
-      @videos = current_user.videos.page(params[:page])
+      @videos = current_user.videos.page(params[:page]).per(20)
     end
 
     def new

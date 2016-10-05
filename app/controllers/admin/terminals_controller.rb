@@ -3,7 +3,7 @@ module Admin
     add_breadcrumb 'Terminais', :admin_terminals_path
 
     def index
-      @terminals = Terminal.orderly.page(params[:page]).per(15)
+      @terminals = Terminal.orderly.page(params[:page])
     end
 
     def new

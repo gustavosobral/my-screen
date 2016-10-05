@@ -3,7 +3,7 @@ module Panel
     add_breadcrumb 'Playlists', :panel_playlists_path
 
     def index
-      @playlists = current_user.playlists.orderly.page(params[:page]).per(15)
+      @playlists = current_user.playlists.orderly.page(params[:page])
     end
 
     def new
