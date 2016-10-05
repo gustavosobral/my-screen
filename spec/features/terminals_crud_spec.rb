@@ -22,7 +22,7 @@ feature 'I manage Terminal', type: :feature do
       expect(page).to have_content 'my-screen-01'
 
       # Update
-      visit edit_admin_terminal_path(1)
+      click_link 'Editar'
       fill_in 'terminal_title', with: 'my-screen-02'
       submit_form
       expect(page).to have_content 'my-screen-02'
