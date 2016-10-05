@@ -20,8 +20,8 @@ module Panel
 
     def create
       @playlist = current_user.playlists.new(playlist_params)
+      @playlist.terminal_ids = params[:playlist][:terminals]
       Playlist::SetItems.new(@playlist, params).set
-      Playlist::SetTerminals.new(@playlist, params).set
 
       if @playlist.save
         redirect_to panel_playlists_path, notice: 'Playlist salva com sucesso!'
@@ -33,8 +33,8 @@ module Panel
 
     def update
       @playlist = set_playlist
+      @playlist.terminal_ids = params[:playlist][:terminals]
       Playlist::SetItems.new(@playlist, params).set
-      Playlist::SetTerminals.new(@playlist, params).set
 
       if @playlist.update(playlist_params)
         redirect_to panel_playlists_path, notice: 'Playlist alterada com sucesso!'

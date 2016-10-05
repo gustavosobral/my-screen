@@ -4,7 +4,10 @@
       .list-group-item
         .row-action-primary.checkbox
           %label
-            %input{ type: 'checkbox', name: 'playlist[terminals][]', value: terminal.id }
+            - if terminal.playlist == @playlist
+              %input{ type: 'checkbox', name: 'playlist[terminals][]', value: terminal.id, checked: '' }
+            - else
+              %input{ type: 'checkbox', name: 'playlist[terminals][]', value: terminal.id }
         .row-content
           %h4.list-group-item-heading
             = terminal.title
