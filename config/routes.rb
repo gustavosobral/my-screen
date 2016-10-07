@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   patch 'switch_user/:id', to: 'masquerade#switch_user', as: :switch_user
   patch 'switch_back',     to: 'masquerade#switch_back', as: :switch_back
 
+  post 'pusher/auth', to: 'pusher#auth'
+
   namespace :panel do
     root to: 'home#index'
 
