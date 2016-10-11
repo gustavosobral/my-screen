@@ -22,6 +22,7 @@ gem 'high_voltage', '~> 3.0.0'
 gem 'rollbar'
 gem 'bower-rails', '~> 0.11.0'
 gem 'pusher'
+gem 'jbuilder'
 
 group :development, :test do
   gem 'byebug'

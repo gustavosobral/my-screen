@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   patch 'switch_user/:id', to: 'masquerade#switch_user', as: :switch_user
   patch 'switch_back',     to: 'masquerade#switch_back', as: :switch_back
 
-  post 'pusher/auth', to: 'pusher#auth'
-
   namespace :panel do
     root to: 'home#index'
 
@@ -26,5 +24,12 @@ Rails.application.routes.draw do
 
     resources :users,     except: [:show]
     resources :terminals, except: [:show]
+  end
+
+  namespace :api do
+    post '/login',         to: 'auth#login'
+    get '/logout',         to: 'auth#logout'
+
+    post '/login_channel', to: 'pusher#login_channel'
   end
 end

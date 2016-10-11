@@ -13,9 +13,12 @@ feature 'I manage Terminal', type: :feature do
       click_link 'Novo terminal'
       submit_form
       expect(page).to have_content 'Título não pode ficar em branco'
+      expect(page).to have_content 'Senha não pode ficar em branco'
 
       # Create
       fill_in 'terminal_title', with: 'my-screen-01'
+      fill_in 'terminal_password', with: 'foobar123'
+      fill_in 'terminal_password_confirmation', with: 'foobar123'
       find('#terminal_user_id').find(:xpath, "option[@value='#{user.id}']").select_option
       submit_form
       expect(page).to have_content user.email
