@@ -27,9 +27,11 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json } do
-    post '/login',         to: 'auth#login'
-    get '/logout',         to: 'auth#logout'
+    namespace :v1 do
+      post '/login',         to: 'auth#login'
+      get '/logout',         to: 'auth#logout'
 
-    post '/login_channel', to: 'pusher#login_channel'
+      post '/login_channel', to: 'pusher#login_channel'
+    end
   end
 end

@@ -29,7 +29,8 @@ module Panel
     end
 
     def terminals_params
-      params.require(:terminal).permit(:playlist_id, :title, :password, :password_confirmation)
+      params.require(:terminal).permit(:playlist_id, :title,
+                                       :password, :password_confirmation)
     end
 
     def remove_password_key

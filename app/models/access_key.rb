@@ -11,8 +11,9 @@ class AccessKey < ActiveRecord::Base
   private
 
   def generate_access_token
-    begin
+    loop do
       self.access_token = SecureRandom.hex
-    end while AccessKey.where(access_token: access_token).exists?
+      break unless AccessKey.where(access_token: access_token).exists?
+    end
   end
 end

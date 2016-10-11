@@ -52,7 +52,8 @@ module Admin
     end
 
     def terminals_params
-      params.require(:terminal).permit(:user_id, :playlist_id, :title, :password, :password_confirmation)
+      params.require(:terminal).permit(:user_id, :playlist_id, :title,
+                                       :password, :password_confirmation)
     end
 
     def remove_password_key

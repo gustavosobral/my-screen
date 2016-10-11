@@ -32,7 +32,8 @@ class Playlist::SetItems
   end
 
   def add_playlist_item(item, index)
-    playlist.playlist_items << Resource.find(item.id).playlist_items.new(position: index, duration: item.duration)
+    playlist.playlist_items << Resource.find(item.id).playlist_items.new(position: index,
+                                                                         duration: item.duration)
   end
 
   def add_playlist_items(items)

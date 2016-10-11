@@ -5,8 +5,6 @@ module TokenAuthenticator
     access_key = AccessKey.where(access_token: token, expired: false).first
     if access_key && access_key.terminal.title == title && !access_key.expired?
       access_key.terminal
-    else
-      nil
     end
   end
 
