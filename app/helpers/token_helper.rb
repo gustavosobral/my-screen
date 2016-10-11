@@ -1,7 +1,7 @@
 module TokenHelper
   def current_terminal
-    @current_terminal ||= TokenAuthenticator.authenticate(headers['X-Terminal-Token'],
-                                                          headers['X-Terminal-Title'])
+    @current_terminal ||= TokenAuthenticator.authenticate(request.headers['X-Terminal-Token'],
+                                                          request.headers['X-Terminal-Title'])
   end
 
   def authenticate_terminal!

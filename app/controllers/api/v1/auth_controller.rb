@@ -11,7 +11,7 @@ module Api
       end
 
       def logout
-        TokenAuthenticator.expire!(headers['X-Terminal-Token'])
+        TokenAuthenticator.expire!(request.headers['X-Terminal-Token'])
       end
     end
   end
