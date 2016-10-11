@@ -23,6 +23,7 @@ gem 'rollbar'
 gem 'bower-rails', '~> 0.11.0'
 gem 'pusher'
 gem 'jbuilder'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug'

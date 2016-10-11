@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :terminals, except: [:show]
   end
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     post '/login',         to: 'auth#login'
     get '/logout',         to: 'auth#logout'
 
