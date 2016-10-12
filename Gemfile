@@ -24,6 +24,8 @@ gem 'bower-rails', '~> 0.11.0'
 gem 'pusher'
 gem 'jbuilder'
 gem 'rack-cors'
+gem 'therubyracer'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug'
