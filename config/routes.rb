@@ -31,7 +31,8 @@ Rails.application.routes.draw do
       post '/login',         to: 'auth#login'
       get '/logout',         to: 'auth#logout'
 
-      post '/login_channel', to: 'pusher#login_channel'
+      post '/login_channel', to: 'terminal#login_channel'
+      post '/notified',      to: 'terminal#notified'
     end
   end
 end
