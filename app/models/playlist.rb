@@ -9,4 +9,13 @@ class Playlist < ActiveRecord::Base
   validates :title,       presence: true, length: { maximum: 45 }
   validates :description, length: { maximum: 255 }
   validates :duration,    numericality: { greater_than: 0.0 }
+
+  def as_json
+    {
+      id: self.id,
+      title: self.title,
+      duration: self.duration,
+      playlist_items: self.playlist_items.as_json
+    }
+  end
 end

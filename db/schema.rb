@@ -67,11 +67,11 @@ ActiveRecord::Schema.define(version: 20161012035435) do
   create_table "terminals", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "playlist_id"
     t.string   "password_digest"
-    t.boolean  "notified",        default: true
+    t.boolean  "notified",        default: false
   end
 
   add_index "terminals", ["playlist_id"], name: "index_terminals_on_playlist_id", using: :btree
