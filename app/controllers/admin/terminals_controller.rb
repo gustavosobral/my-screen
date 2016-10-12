@@ -30,6 +30,7 @@ module Admin
 
     def update
       add_breadcrumb 'Editar'
+      remove_password_key
       @terminal = set_terminal
       if @terminal.update(terminals_params)
         redirect_to admin_terminals_path, notice: 'Terminal alterado com sucesso!'
@@ -51,7 +52,14 @@ module Admin
     end
 
     def terminals_params
-      params.require(:terminal).permit(:user_id, :playlist_id, :title)
+      params.require(:terminal).permit(:user_id, :playlist_id, :title,
+                                       :password, :password_confirmation)
+    end
+
+    def remove_password_key
+      return unless params[:terminal][:password].blank?
+      params[:terminal].delete(:password)
+      params[:terminal].delete(:password_confirmation)
     end
   end
 end

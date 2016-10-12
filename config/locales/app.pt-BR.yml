@@ -37,6 +37,7 @@ pt-BR:
         file: Arquivo
       terminal:
         title: Título
+        password: Senha
       playlist:
         title: Título
         description: Descrição

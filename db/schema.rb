@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926190833) do
+ActiveRecord::Schema.define(version: 20161012035435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_keys", force: :cascade do |t|
+    t.string   "access_token"
+    t.boolean  "expired",      default: false
+    t.integer  "terminal_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "access_keys", ["terminal_id"], name: "index_access_keys_on_terminal_id", using: :btree
 
   create_table "playlist_items", force: :cascade do |t|
     t.integer  "position"
@@ -57,9 +67,11 @@ ActiveRecord::Schema.define(version: 20160926190833) do
   create_table "terminals", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "playlist_id"
+    t.string   "password_digest"
+    t.boolean  "notified",        default: false
   end
 
   add_index "terminals", ["playlist_id"], name: "index_terminals_on_playlist_id", using: :btree
@@ -85,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160926190833) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "access_keys", "terminals"
   add_foreign_key "playlist_items", "playlists"
   add_foreign_key "playlist_items", "resources"
   add_foreign_key "playlists", "users"

@@ -24,6 +24,7 @@ module Panel
       Playlist::SetItems.new(@playlist, params).set
 
       if @playlist.save
+        notify_terminals
         redirect_to panel_playlists_path, notice: 'Playlist salva com sucesso!'
       else
         @resources = set_resources
@@ -37,6 +38,7 @@ module Panel
       Playlist::SetItems.new(@playlist, params).set
 
       if @playlist.update(playlist_params)
+        notify_terminals
         redirect_to panel_playlists_path, notice: 'Playlist alterada com sucesso!'
       else
         @resources = set_resources
@@ -62,6 +64,10 @@ module Panel
 
     def playlist_params
       params.require(:playlist).permit(:title, :description, :duration)
+    end
+
+    def notify_terminals
+      @playlist.terminals.each(&:notify!)
     end
   end
 end
