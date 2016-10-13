@@ -41,4 +41,5 @@ If everything goes OK, you can now run the project!
 The application has a Cron Job to notify terminals from playlists update.
 
 In development, you can run `$ whenever -w --set environment='development'` to write the jobs from `config/schedule.rb` on the crontab file.
+
 To clear the crontab file, you can run `$ whenever -c`.
