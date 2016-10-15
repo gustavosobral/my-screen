@@ -9,7 +9,7 @@ namespace :terminals do
       unless terminal.playlist.nil?
         Pusher.trigger("private-terminal-#{terminal.id}", 'new_playlist', terminal.playlist.as_json )
       else
-        Pusher.trigger("private-terminal-#{terminal.id}", 'new_playlist', { message: 'Default playlist' } )
+        Pusher.trigger("private-terminal-#{terminal.id}", 'new_playlist', {} )
       end
     end
   end

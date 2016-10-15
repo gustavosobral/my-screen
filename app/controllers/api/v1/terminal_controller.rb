@@ -14,6 +14,7 @@ module Api
       def notified
         terminal = Terminal.find(params[:id])
         terminal.update_attribute(:notified, true)
+        render json: {}
       end
     end
   end
