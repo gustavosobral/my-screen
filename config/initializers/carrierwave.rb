@@ -8,6 +8,12 @@ if Rails.env.test? || Rails.env.cucumber?
   end
 end
 
+if Rails.env.development?
+  CarrierWave.configure do |config|
+    config.asset_host = ENV['ASSET_HOST']
+  end
+end
+
 if Rails.env.production?
   CarrierWave.configure do |config|
     config.fog_credentials = {
