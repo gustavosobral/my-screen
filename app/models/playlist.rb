@@ -15,6 +15,7 @@ class Playlist < ActiveRecord::Base
       id: self.id,
       title: self.title,
       duration: self.duration,
+      updated_at: self.updated_at,
       playlist_items: self.playlist_items.as_json
     }
   end
