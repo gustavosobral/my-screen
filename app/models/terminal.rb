@@ -1,6 +1,7 @@
 class Terminal < ActiveRecord::Base
   belongs_to :user
   belongs_to :playlist, counter_cache: true
+  has_many   :access_keys, dependent: :nullify
 
   scope :orderly, -> { order(updated_at: :desc) }
 
